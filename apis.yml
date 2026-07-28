@@ -1,0 +1,111 @@
+aid: qantas
+url: https://raw.githubusercontent.com/api-evangelist/qantas/refs/heads/main/apis.yml
+name: Qantas
+kind: company
+humanURL: https://www.qantas.com/
+description: Qantas Airways Limited is Australia's flag carrier and, with its low-cost
+  subsidiary Jetstar, one half of a domestic duopoly alongside Virgin Australia. In
+  the distribution chain Qantas is the supplier of its own inventory — it sits upstream
+  of the GDSs (Amadeus, Sabre, Travelport), the aggregators (Duffel, Travelfusion,
+  Mystifly, Verteil, AirGateway, TPConnects, TravelSky) and the large Australian agency
+  groups (Flight Centre, Corporate Travel Management, Webjet). Its API posture is
+  distribution-only and fully gated. Qantas publishes no developer portal, no OpenAPI
+  or Swagger definition, and no public consumer API; developer., developers., docs.
+  and api.qantas.com.au do not resolve, and api.qantas.com returns 404 on every path
+  probed. The one real API is the Qantas Distribution Platform (QDP) NDC XML API,
+  built with Farelogix (now Accelya) and certified by IATA to NDC@Scale. It is documented
+  in prose on Qantas Agency Connect but no endpoint, schema or specification is published;
+  a technology partner must sign a Qantas Distribution Platform Access Agreement,
+  subject to Qantas technical and commercial approval, before it is granted test-environment
+  access, and an agency must hold IATA, ARC, TIDS or VTC accreditation. Public docs
+  on how to get in, no public contract and no exit path.
+accessModel:
+  pricing: unknown
+  onboarding: approval
+  trial: false
+  try_now: false
+  public: false
+  label: Commercial agreement · Accreditation required
+  confidence: high
+  source:
+  - https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc
+  - https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/register
+  generated: '2026-07-28'
+  method: observed
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/qantas.png
+tags:
+- Travel
+- Australia
+- Aviation
+- Airline
+- Distribution
+- NDC
+- Booking
+- Corporate Travel
+- Loyalty
+created: '2026-07-28'
+modified: '2026-07-28'
+specificationVersion: '0.19'
+apis:
+- aid: qantas:qantas-distribution-platform-ndc-xml-api
+  name: Qantas Distribution Platform NDC XML API
+  description: The Qantas Distribution Platform (QDP) is Qantas' NDC XML API for airline
+    retailing — shopping, offer and order creation, ticketing, ancillaries and post-booking
+    servicing of Qantas (QF) content for travel agencies, GDSs and aggregators. Built
+    in partnership with Farelogix Inc. (now Accelya) on IATA's New Distribution Capability
+    standard, and certified by IATA to NDC@Scale. Qantas states the platform "does
+    not have a customer-facing user interface" and is "designed to allow Technology
+    Partners to develop a connection to our NDC XML API". No endpoint host, no NDC
+    schema version and no machine-readable specification are published; access requires
+    a signed Qantas Distribution Platform Access Agreement, and agencies must hold
+    IATA, ARC, TIDS or VTC accreditation. Agencies that cannot connect through a Certified
+    Technology Partner may instead use the QDP portal, a web UI powered by Accelya
+    NDC SPRK.
+  humanURL: https://agencyconnect.qantas.com/en-au/ndc
+  tags:
+  - NDC
+  - Airline Distribution
+  - XML
+  - Offers and Orders
+  - Ticketing
+  - Ancillaries
+  - Servicing
+  properties:
+  - type: Documentation
+    url: https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc
+  - type: Documentation
+    url: https://agencyconnect.qantas.com/en-au/ndc/benefits
+  - type: Partners
+    url: https://agencyconnect.qantas.com/en-au/ndc/approved-technology-partners
+  - type: Support
+    url: https://agencyconnect.qantas.com/en-au/ndc/help-support
+  - type: Glossary
+    url: https://agencyconnect.qantas.com/en-au/ndc/help-support/glossary
+  - type: RateLimits
+    url: https://agencyconnect.qantas.com/en-au/policies/agent-information/ndc-shopping-policy
+  - type: TermsOfService
+    url: https://agencyconnect.qantas.com/en-au/standard-agency-terms-conditions
+  - type: Portal
+    url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal
+  - type: Signup
+    url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/register
+  - type: TermsOfService
+    url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/terms-conditions
+  - type: Pricing
+    url: https://agencyconnect.qantas.com/en-au/ndc/premium
+common:
+- type: Website
+  url: https://www.qantas.com/
+- type: Portal
+  url: https://agencyconnect.qantas.com/en-au
+- type: Documentation
+  url: https://agencyconnect.qantas.com/en-au/ndc
+- type: TermsOfService
+  url: https://agencyconnect.qantas.com/en-au/standard-agency-terms-conditions
+- type: VulnerabilityDisclosure
+  url: https://www.qantas.com/.well-known/security.txt
+- type: LinkedIn
+  url: https://www.linkedin.com/company/qantas
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

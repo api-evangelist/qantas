@@ -1,0 +1,415 @@
+aid: qantas
+name: Qantas
+review:
+  question: Does Qantas publish a public developer portal, a machine-readable API definition,
+    or any self-serve API surface — and what would it cost a customer to leave?
+  answer: false
+  date: '2026-07-28'
+  reviewer: API Evangelist
+  openapiHarvested: false
+  specsCount: 0
+findings:
+  summary: |
+    Qantas publishes no developer portal, no OpenAPI/Swagger/AsyncAPI definition,
+    no Postman collection and no public consumer API. developer.qantas.com,
+    developers.qantas.com, docs.qantas.com, developer.qantas.com.au and
+    api.qantas.com.au do not resolve (DNS failure, curl exit 6). api.qantas.com
+    resolves but returns HTTP 404 on /, /docs, /v1, /openapi.json and
+    /swagger.json. /developers, /api, /docs, /openapi.json, /swagger.json and
+    /api-docs on www.qantas.com all return HTTP 404. There is no Qantas GitHub
+    organization (api.github.com/orgs/qantas → HTTP 404). Qantas is not listed on
+    the IATA Developer Portal (api.developer.iata.org/organization/qantas → HTTP
+    404; developer.iata.org returns HTTP 200 with no Qantas mention).
+
+    The one real API is the Qantas Distribution Platform (QDP) NDC XML API. It is
+    documented in prose on Qantas Agency Connect — what it does, who is certified
+    to carry it, what it costs per segment, what the fair-use policy is — but not
+    as a contract. No host, no endpoint, no NDC schema version, no message
+    catalogue and no specification are published anywhere Qantas controls.
+
+    This is the airline pattern in its purest form: the consumer surface is
+    app-and-web only with no API, and the distribution surface is a standard
+    (IATA NDC) wrapped in a bilateral commercial agreement. The standard is real
+    and it is what makes Duffel, AirGateway, Verteil and thirteen others able to
+    resell Qantas content at all. The lock-in is not in the message format — it
+    is in the fact that Qantas is the sole source of Qantas inventory, that the
+    cheapest channel is contractually gated behind invitation, and that every
+    other channel carries a per-segment surcharge Qantas sets unilaterally.
+  consumerSurface:
+    publicAPI: false
+    note: |
+      Flight status, check-in, loyalty and booking are delivered through
+      qantas.com and the Qantas app only. No public consumer API is documented.
+      Third-party flight-status data for QF is sold by aggregators (AirLabs,
+      Aviation Edge, FlightLabs) sourced independently of Qantas — those are not
+      Qantas-published APIs and are not listed here.
+  distributionSurface:
+    platform: Qantas Distribution Platform (QDP)
+    technologyProvider: Farelogix Inc., now part of Accelya
+    portalProduct: QDP portal, powered by Accelya NDC SPRK
+    certifiedTechnologyPartners:
+    - Aaron Group
+    - Aeronology
+    - AirGateway
+    - Amadeus
+    - Clarity Travel Technology Solutions
+    - Duffel
+    - Mystifly
+    - Sabre
+    - TPConnects
+    - Travelfusion
+    - Travelport
+    - TravelSky
+    - Verteil
+    partnersRemovedSince2022:
+    - Kyte
+    - Serko
+switchingCost:
+  interfaceShape: standard-plus-proprietary
+  interfaceShapeEvidence: |
+    The wire format is an open standard: IATA New Distribution Capability (NDC),
+    XML. Qantas states plainly that QDP "utilises IATA's New Distribution
+    Capability (NDC) standard, and Application Program Interface (API)
+    technology" and that it "is IATA NDC@Scale certified and is designed to allow
+    Technology Partners to develop a connection to our NDC XML API". That is why
+    thirteen independent technology partners — including generalist aggregators
+    like Duffel and AirGateway that carry 25+ NDC carriers — can resell Qantas
+    content without a bespoke build per airline.
+
+    The proprietary extension is where the binding happens, and it is commercial
+    rather than syntactic:
+      - Content is tiered. "Premium NDC" carries "the largest range of Qantas'
+        indirect content" and "all published NDC sale fares"; Standard NDC gets
+        less. The tier is not a protocol feature — it is an entitlement Qantas
+        grants.
+      - Qantas-specific shopping qualifiers are documented in the NDC glossary:
+        ABN/QBR corporate account codes, BestPrice filter, Qantas Routelist data,
+        Price Guarantee Ticketing Time Limit (PGTTL), dynamic commission offers.
+        PGTTL is explicitly marketed as "Not available in EDIFACT".
+      - The published NDC schema version is nowhere stated, so a partner cannot
+        size the integration before signing.
+    No NDC schema version, message set or endpoint is published. A partner learns
+    the actual contract only after signing the Access Agreement.
+  standardNamed: IATA New Distribution Capability (NDC), XML; certified NDC@Scale
+    (IATA's highest tier under the pre-ARM scheme). No NDC schema version published.
+  secondSource: no-alternative
+  secondSourceEvidence: |
+    Alternatives considered, and why none of them is a second source for the
+    capability in question:
+      - Other carriers (Virgin Australia, Jetstar, Rex): competitors for a
+        passenger, not a source of Qantas seats. Jetstar is a Qantas Group
+        subsidiary and, like most low-cost carriers, historically bypassed the
+        GDS with direct distribution — a switching-cost fact about the whole
+        market, not a substitute supply of QF inventory.
+      - The three GDSs (Amadeus, Sabre, Travelport): all three carry Qantas
+        content, so they are interchangeable as *channels*. They are not a second
+        source of the content, and from 1 July 2025 taking the GDS route costs
+        money Qantas sets: A$11.50 per segment (AU point of sale) or up to US$13
+        elsewhere for traditional EDIFACT; A$4.50 or US$3.00 per segment for
+        Standard NDC via a GDS.
+      - Aggregators (Duffel, Travelfusion, Mystifly, Verteil, AirGateway,
+        TPConnects, TravelSky, Aeronology, ClarityTTS, Aaron Group): genuinely
+        interchangeable with each other at the NDC layer, and surcharge-free.
+        This is the one place the standard delivers real substitutability — but
+        every one of them is reselling the same single upstream source.
+    For Qantas seats there is exactly one supplier. Saying so is the finding: the
+    channel is competitive, the content is monopoly.
+  exitPath: no-export-published
+  exitPathEvidence: |
+    No export, dump, bulk-extract, data-portability or reporting endpoint is
+    documented anywhere in the Qantas Agency Connect NDC material. The QDP portal
+    Terms and Conditions reference "Documentation and Reports" as things the
+    Agent must supervise the use of, but no operation for retrieving them in bulk
+    is published, and the portal is a web UI rather than an API. Qantas' public
+    privacy material addresses individual consumer privacy, not agency data
+    portability. There is no cited operation because there is none to cite.
+  identifierPortability: |
+    Shared industry identifiers dominate, which is the one genuinely portable
+    thing here: IATA airline code QF; PNR record locators; EMD numbers for
+    ancillaries; IATA, ARC, TIDS and VTC agency accreditation numbers; pseudo
+    city codes (PCC); passenger type codes (e.g. UNN for unaccompanied minors).
+    Platform-specific identifiers: the NDC Order ID (Qantas' support instructions
+    ask for "the Order ID or PNR"), which is an NDC-standard construct but issued
+    by and resolvable only within QDP; Qantas Frequent Flyer number (FFN); and
+    ABN/QBR corporate account codes, which are Qantas Business Rewards keys with
+    no meaning outside Qantas. Net: an agency's bookings are addressable by
+    industry keys, but its corporate-account and loyalty relationships are not.
+  contractualLockIn: |
+    Verbatim from published Qantas documents (all fetched 2026-07-28, HTTP 200):
+
+    Qantas Distribution Platform "Connect" page (archived capture 2022-08-13,
+    HTTP 200; the live URL now redirects to the Agency Connect NDC hub):
+      "New Technology Partners wishing to connect into our NDC XML API are
+      required to sign a Qantas Distribution Platform Access Agreement, prior to
+      being granted access to our test environment."
+      "Access to the test environment does not guarantee access to the Qantas
+      Distribution Platform production environment or IATA NDC accreditation.
+      Any development costs associated with connecting to the Qantas Distribution
+      Platform test environment, or to reach IATA NDC certification is to be
+      borne solely by the Technology Partner."
+      "A Qantas Distribution Platform Access Agreement is subject to Qantas
+      technical and commercial approval."
+
+    Qantas Standard Agency Terms and Conditions (effective 1 July 2025):
+      1.3 — "Qantas may amend these Terms and any related Qantas policies or
+      procedures by posting updates on the Qantas Agency Connect Site with such
+      changes taking effect on 30 days' notice or earlier if required by law or
+      for operational reasons."
+      2.1 — "The Agent must hold any: (a) applicable licences or memberships
+      required by law; and (b) other industry accreditations reasonably required
+      by Qantas, such as IATA accreditation, ARC accreditation or participation
+      in TIDS / VTC."
+      2.5 — "Qantas Ticketing Authority is granted to, and may be removed from,
+      the Agent at the sole discretion of Qantas… where the Agent's Qantas
+      Ticketing Authority has been inactive for a period greater than 6 months".
+      14.5(a) — the Agent's stated route to terminate.
+
+    QDP portal Terms and Conditions:
+      2.1(c) — the Agent must "not copy, reproduce, translate, adapt, vary or
+      modify the QDP Portal".
+      2.1(f) — must "not create any hyperlink from the Agent's website to the QDP
+      Portal".
+      2.1(g) — must "not allow customers of the Agent or any unauthorised third
+      parties direct access to the QDP Portal".
+      Deregistration is listed as a status Qantas can set, including where an
+      "Agency has breached the portal Terms and Conditions."
+
+    Premium NDC access criteria (published, invitation-only):
+      "Agent having a commercial agreement with Qantas"; "Agent adhering to
+      Qantas' compliance framework and Standard Agency Terms and Conditions";
+      "Agent meeting Qantas' Minimum Servicing and Brand Requirements". Qantas
+      states access "will be by invitation only" and that it "may also be subject
+      to reaching an agreement with your technology partner."
+
+    Published fair-use limit (NDC Shopping Policy): "Maximum Acceptable L2B
+    Ratio: 2500:1", with stated remedies of offer limitation, request throttling
+    ("cap the number of NDC requests processed within set time intervals") and
+    access restriction.
+
+    No minimum term, no exclusivity clause and no full-content agreement is
+    published. Do not infer one.
+  accessGate: commercial-agreement
+  accessGateEvidence: |
+    Two distinct gates, neither self-serve:
+      1. Technology partner wanting the NDC XML API: sign a Qantas Distribution
+         Platform Access Agreement, subject to Qantas technical and commercial
+         approval, to get a test environment. Registration is an expression of
+         interest — "a Qantas Representative will be in touch to organise an
+         introductory call". Production access and IATA NDC accreditation are not
+         guaranteed by it, and the partner bears all development cost.
+      2. Travel agency wanting the content: hold a valid IATA, ARC, TIDS or VTC
+         number; register on Qantas Agency Connect with an Agency Manager
+         profile; then either nominate a Certified Technology Partner or apply
+         for the QDP portal via My Agency Profile. Portal applications are
+         reviewed by Qantas (stated up to 7 business days) and can be Rejected or
+         Deregistered. TIDS agencies additionally require a registered
+         Consolidator to ticket on their behalf.
+      3. Premium NDC (the surcharge-free, widest-content tier): invitation only,
+         or an Expression of Interest behind an authenticated login.
+    So: accreditation *and* a signed agreement *and*, for the best tier, an
+    invitation. There is nothing a developer can sign up for unaided.
+  distributionModel: ndc-direct
+  ndcPosture: |
+    Qantas runs its own NDC platform and prices every other channel above it.
+    Certification: "Qantas Distribution Platform is certified to NDC@Scale,
+    IATA's highest certification" (Qantas' own FAQ). NDC@Scale predates IATA's
+    Airline Retailing Maturity (ARM) index, which has since replaced the
+    NDC@Scale / Level 4 / Level 3 / Level 2 tiers; Qantas has not published an
+    ARM position, and no current Qantas page restates the certification — the
+    NDC@Scale claim survives only in archived Qantas material and in partner
+    write-ups.
+
+    NDC API published? Prose only. There is no public NDC endpoint, no schema
+    version, no message catalogue, no specification. "IATA NDC@Scale certified
+    per Qantas' own FAQ, but no public NDC endpoint" is the accurate summary.
+
+    Do GDS bookings carry surcharges? Yes, and this is the sharpest lock-in
+    signal in the whole profile. From 1 July 2025:
+      - Traditional EDIFACT via GDS: A$11.50 per segment (AU POS), up to US$13
+        per segment other points of sale.
+      - Standard NDC via Amadeus, Sabre or Travelport: A$4.50 or US$3.00 per
+        segment.
+      - Certified Technology Partner, or the QDP portal: no surcharge.
+      - Premium NDC: no surcharge, largest content range, invitation/EOI only.
+    Surcharges are stated as correct at 27 November 2024, "subject to change",
+    with carve-outs on Qantas/Emirates joint-business routes. Qantas is using
+    price, not protocol, to move the market off the GDS onto its own platform —
+    the exact restructuring NDC was created to enable.
+  kinScoreNote: |
+    Nothing in the current Kin Score rubric captures what this profile found. A
+    scoring model built on published artifacts reads Qantas as thin — no spec, no
+    portal, no self-serve — and that is true but incomplete. What it misses:
+    Qantas publishes an unusually candid, machine-adjacent body of *policy* (a
+    numeric look-to-book limit, a per-segment surcharge table, an accreditation
+    matrix, deregistration criteria) while publishing zero of the *contract*.
+    Transparency about the terms of access and transparency of the interface are
+    independent axes, and travel is where they come apart hardest.
+probes:
+  - url: https://developer.qantas.com
+    status: DNS-NXDOMAIN
+    note: curl exit 6, could not resolve host
+  - url: https://developers.qantas.com
+    status: DNS-NXDOMAIN
+  - url: https://docs.qantas.com
+    status: DNS-NXDOMAIN
+  - url: https://developer.qantas.com.au
+    status: DNS-NXDOMAIN
+  - url: https://api.qantas.com.au
+    status: DNS-NXDOMAIN
+  - url: https://developer.jetstar.com
+    status: DNS-NXDOMAIN
+  - url: https://api.jetstar.com
+    status: DNS-NXDOMAIN
+  - url: https://api.qantas.com/
+    status: 404
+  - url: https://api.qantas.com/docs
+    status: 404
+  - url: https://api.qantas.com/v1
+    status: 404
+  - url: https://api.qantas.com/openapi.json
+    status: 404
+  - url: https://api.qantas.com/swagger.json
+    status: 404
+  - url: https://www.qantas.com/developers
+    status: 404
+  - url: https://www.qantas.com/api
+    status: 404
+  - url: https://www.qantas.com/docs
+    status: 404
+  - url: https://www.qantas.com/api-docs
+    status: 404
+  - url: https://www.qantas.com/openapi.json
+    status: 404
+  - url: https://www.qantas.com/swagger.json
+    status: 404
+  - url: https://www.qantas.com/api/openapi.json
+    status: 404
+  - url: https://agencyconnect.qantas.com/openapi.json
+    status: 404
+  - url: https://agencyconnect.qantas.com/.well-known/security.txt
+    status: 404
+  - url: https://developer.qantasloyalty.com/
+    status: 503
+    note: Host resolves and terminates TLS but serves HTTP 503 with no content; nothing
+      documented, nothing harvestable.
+  - url: https://api.github.com/orgs/qantas
+    status: 404
+    note: No Qantas GitHub organization. github.com/Qantas is an unrelated individual
+      user account.
+  - url: https://api.developer.iata.org/organization/qantas
+    status: 404
+    note: Qantas is not published on the IATA Developer Portal.
+  - url: https://developer.iata.org/
+    status: 200
+    note: IATA Developer Portal loads; no Qantas listing in the page.
+  - url: https://www.qantas.com/.well-known/security.txt
+    status: 200
+    note: Bugcrowd vulnerability disclosure program, qantas-vdp-ess@submit.bugcrowd.com
+  - url: https://www.qantas.com/robots.txt
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc
+    status: 200
+    note: Landing target for every legacy www.qantas.com/distributionplatform/* and
+      /agencyconnect/*/qantas-ndc* URL.
+  - url: https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc/benefits
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc/approved-technology-partners
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc/approved-technology-partners/duffel
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc/premium
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc/switch-on
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc/help-support
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc/help-support/glossary
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/register
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/faqs
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/terms-conditions
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/standard-agency-terms-conditions
+    status: 200
+  - url: https://agencyconnect.qantas.com/en-au/policies/agent-information/ndc-shopping-policy
+    status: 200
+  - url: https://www.qantas.com/distributionplatform/au/en/connect.html
+    status: 200
+    note: Redirects to https://agencyconnect.qantas.com/en-au/ndc — the Access Agreement
+      language is no longer on a live page.
+  - url: http://web.archive.org/web/20220813183532/https://www.qantas.com/distributionplatform/au/en/connect.html
+    status: 200
+    note: Archived 2022-08-13. Source of the verbatim Qantas Distribution Platform
+      Access Agreement language quoted above.
+  - url: http://web.archive.org/web/20220812031601/https://www.qantas.com/distributionplatform/au/en/frequently-asked-questions.html
+    status: 200
+    note: Archived 2022-08-12. Source of the verbatim NDC@Scale certification and Farelogix
+      statements quoted above.
+sources:
+  - url: https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc
+    type: Documentation
+    note: Surcharge table by channel effective 1 July 2025; "your travel agency must
+      be connected with a Qantas Certified Technology Partner or GDS".
+  - url: https://agencyconnect.qantas.com/en-au/ndc/approved-technology-partners
+    type: Partners
+    note: Thirteen Certified Technology Partners listed as of 2026-07-28.
+  - url: https://agencyconnect.qantas.com/en-au/ndc/premium
+    type: Pricing
+    note: Premium NDC access criteria; invitation only; Expression of Interest behind
+      login.
+  - url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/register
+    type: Signup
+    note: IATA/TIDS/ARC prerequisite; Agency Manager application; up to 7 business
+      days review; New/Rejected/Active/Deregistered states.
+  - url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/faqs
+    type: FAQ
+    note: '"The Qantas Distribution Platform portal is powered by Accelya using a product
+      called NDC SPRK."'
+  - url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/terms-conditions
+    type: TermsOfService
+    note: Portal Terms clauses 1.x, 2.1(c)(f)(g), 2.3; precedence order Agency Agreement
+      > Standard Agency Terms > Portal Terms.
+  - url: https://agencyconnect.qantas.com/en-au/standard-agency-terms-conditions
+    type: TermsOfService
+    note: Clauses 1.3, 2.1, 2.4, 2.5, 14.5(a). Effective 1 July 2025.
+  - url: https://agencyconnect.qantas.com/en-au/policies/agent-information/ndc-shopping-policy
+    type: RateLimits
+    note: 'Maximum acceptable Look-to-Book ratio 2500:1; throttling and access restriction
+      remedies.'
+  - url: https://agencyconnect.qantas.com/en-au/ndc/help-support/glossary
+    type: Glossary
+    note: NDC surcharge definition; PGTTL; qualifiers including FFN, ABN/QBR, BestPrice;
+      Order ID vs PNR.
+  - url: http://web.archive.org/web/20220812031601/https://www.qantas.com/distributionplatform/au/en/frequently-asked-questions.html
+    type: Archive
+    note: '"Qantas Distribution Platform is certified to NDC@Scale, IATA''s highest
+      certification"; Farelogix Inc. as developer; "does not have a customer-facing
+      user interface".'
+  - url: http://web.archive.org/web/20220813183532/https://www.qantas.com/distributionplatform/au/en/connect.html
+    type: Archive
+    note: Qantas Distribution Platform Access Agreement terms; development costs borne
+      solely by the Technology Partner.
+  - url: https://www.qantas.com/.well-known/security.txt
+    type: VulnerabilityDisclosure
+    note: Bugcrowd VDP for Qantas Group digital assets.
+actions:
+  openapiHarvested: false
+  openapiDirectoryCreated: false
+  reason: |
+    No machine-readable API definition of any kind is published by Qantas. Every
+    spec path probed on qantas.com, api.qantas.com and agencyconnect.qantas.com
+    returned HTTP 404, no developer subdomain resolves, there is no Qantas GitHub
+    organization, and Qantas is not on the IATA Developer Portal. The NDC XML API
+    contract is disclosed only after a Qantas Distribution Platform Access
+    Agreement is signed. Nothing was fabricated and no openapi/ directory was
+    created.
+  apisYmlCreated: true
+  apisListed: 1
