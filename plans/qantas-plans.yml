@@ -1,0 +1,161 @@
+generated: '2026-07-28'
+method: searched
+source: https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/distribution-surcharge-policy
+docs:
+- https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/distribution-surcharge-policy
+- https://agencyconnect.qantas.com/en-au/ndc/premium
+- https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc
+- https://agencyconnect.qantas.com/en-au/news/july-2026/distribution-changes
+note: |
+  Qantas does not sell API access; it prices DISTRIBUTION CHANNELS. There is no
+  subscription, no metered API pricing and no free tier. What is published is a
+  per-segment Qantas Distribution Surcharge collected as a YR fee at ticket issue,
+  which varies by the channel the booking was made through. The effect is a price
+  ladder that makes the legacy GDS/EDIFACT channel the most expensive and Qantas'
+  own NDC platform free — pricing, not protocol, is the migration lever. Access to
+  the cheapest tier (Premium NDC) is invitation/criteria based, not purchasable.
+currency_note: Surcharge is automatically priced and collected through a YR fee at
+  ticket issue and converted to local currency at the Bank Selling Rate on the day
+  of issue. POS AU amounts are exclusive of Australian GST.
+plans:
+- name: Premium NDC
+  slug: premium-ndc
+  access: invitation-or-eoi
+  self_serve: false
+  surcharge:
+  - point_of_sale: AU
+    amount: 0
+    currency: AUD
+    unit: per Qantas-marketed flight segment
+  - point_of_sale: NZ
+    amount: 0
+    currency: NZD
+    unit: per Qantas-marketed flight segment
+  - point_of_sale: ROW
+    amount: 0
+    currency: USD
+    unit: per Qantas-marketed flight segment
+  includes:
+  - No Qantas distribution surcharge on agent bookings, regardless of technology partner
+  - Lower domestic fares than Standard NDC
+  - All published NDC sale fares
+  - Free standard seat selection on Qantas-ticketed flights for Bronze Frequent Flyers
+  eligibility:
+  - Agent having a commercial agreement with Qantas
+  - Agent adhering to Qantas' compliance framework and Standard Agency Terms and Conditions
+  - Agent meeting Qantas' Minimum Servicing and Brand Requirements
+  restrictions:
+  - Access is by invitation only, or by Expression of Interest submitted behind an
+    authenticated login
+  - May be subject to reaching an agreement with the agent's technology partner
+  - Not available in China
+  url: https://agencyconnect.qantas.com/en-au/ndc/premium
+- name: Standard NDC (via a Certified Technology Partner or the QDP portal)
+  slug: standard-ndc-non-gds
+  access: agreement
+  self_serve: false
+  surcharge:
+  - point_of_sale: AU
+    amount: 0
+    currency: AUD
+    unit: per Qantas-marketed flight segment
+  - point_of_sale: NZ
+    amount: 0
+    currency: NZD
+    unit: per Qantas-marketed flight segment
+  - point_of_sale: ROW
+    amount: 0
+    currency: USD
+    unit: per Qantas-marketed flight segment
+  note: Exempt from the distribution surcharge. Reached either through one of the
+    Certified Technology Partners or directly through the Qantas Distribution Platform
+    portal (QDPp), which has no setup fees.
+  url: https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc
+- name: Standard NDC via GDS
+  slug: standard-ndc-gds
+  access: agreement
+  self_serve: false
+  channel: Amadeus, Sabre, Travelport, TravelSky
+  surcharge:
+  - point_of_sale: AU
+    amount: 4.5
+    currency: AUD
+    unit: per Qantas-marketed flight segment
+    effective: '2025-07-01'
+    note: Australian domestic itineraries sold in Australia collect AUD4.50 plus AUD0.45
+      UO. Exclusive of Australian GST.
+  - point_of_sale: NZ
+    amount: 5.0
+    currency: NZD
+    unit: per Qantas-marketed flight segment
+    effective: '2025-07-01'
+  - point_of_sale: ROW
+    amount: 3.0
+    currency: USD
+    unit: per Qantas-marketed flight segment
+    effective: '2025-07-01'
+  announced_change:
+    effective: '2026-07-29'
+    announced: '2026-07-21'
+    source: https://agencyconnect.qantas.com/en-au/news/july-2026/distribution-changes
+    amounts:
+    - point_of_sale: AU
+      amount: 4.7
+      currency: AUD
+    - point_of_sale: NZ
+      amount: 5.5
+      currency: NZD
+    - point_of_sale: ROW
+      amount: 4.0
+      currency: USD
+- name: EDIFACT via GDS (legacy)
+  slug: edifact-gds
+  access: agreement
+  self_serve: false
+  channel: Legacy GDS EDIFACT
+  surcharge:
+  - point_of_sale: AU
+    amount: 11.5
+    currency: AUD
+    unit: per Qantas-marketed flight segment
+    effective: '2025-07-01'
+    note: Australian domestic itineraries sold in Australia collect AUD11.50 plus AUD1.15
+      UO. Exclusive of Australian GST.
+  - point_of_sale: NZ
+    amount: 17.5
+    currency: NZD
+    unit: per Qantas-marketed flight segment
+    effective: '2025-07-01'
+  - point_of_sale: ROW
+    amount: 13.0
+    currency: USD
+    unit: per Qantas-marketed flight segment
+    effective: '2025-07-01'
+  announced_change:
+    effective: '2026-07-29'
+    announced: '2026-07-21'
+    source: https://agencyconnect.qantas.com/en-au/news/july-2026/distribution-changes
+    amounts:
+    - point_of_sale: AU
+      amount: 12.0
+      currency: AUD
+    - point_of_sale: NZ
+      amount: 18.0
+      currency: NZD
+    - point_of_sale: ROW
+      amount: 13.5
+      currency: USD
+  note: All Qantas-marketed segments booked in EDIFACT incur the surcharge, regardless
+    of whether the agency also has access to Premium NDC.
+surcharge_exceptions:
+- Tickets issued through Qantas direct booking channels
+- Tickets issued via the Qantas Distribution Platform portal (QDPp)
+- Tickets issued via Premium NDC, or via Standard NDC through a non-GDS technology
+  partner
+- Group bookings quoted, booked and ticketed using the Qantas Group Travel website
+- Specific routes including the Qantas and Emirates joint-business routes between
+  Australia and New Zealand, and between Australia/New Zealand and the UK, Europe,
+  North Africa, the Middle East, Thailand and Singapore
+change_policy: Qantas reserves the right to review the terms, conditions and amount
+  of the Qantas Distribution Surcharge from time to time, and will provide notice of
+  any such changes on the Qantas Agency Connect website.

@@ -1,0 +1,82 @@
+generated: '2026-07-28'
+method: searched
+source: live probes of the /.well-known/ surface on every Qantas host in apis.yml
+note: |
+  Qantas publishes no baseURL for the Qantas Distribution Platform NDC XML API, so
+  the probe set is the three reachable Qantas hosts (www.qantas.com, the Agency
+  Connect distribution host, and the api.qantas.com host that resolves but 404s on
+  every path) plus the Jetstar consumer host for the sibling Qantas Group brand.
+  Only security.txt exists anywhere in the group; there is no OIDC/OAuth discovery
+  document, no RFC 9727 api-catalog and no ai-plugin manifest.
+hosts:
+- host: https://www.qantas.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: qantas-security.txt
+    standard: RFC 9116
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://agencyconnect.qantas.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /robots.txt
+    status: 200
+    note: 'Declares Sitemap: https://agencyconnect.qantas.com/csg/qac-sitemap.xml'
+- host: https://api.qantas.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://www.jetstar.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: Sibling Qantas Group low-cost carrier; not harvested into this repo.
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+sitemaps:
+- url: https://agencyconnect.qantas.com/csg/qac-sitemap.xml
+  status: 200
+  entries: 3662
+  note: |
+    The only machine-readable index Qantas publishes for the distribution surface.
+    It enumerates the full Agency Connect information architecture (NDC pages,
+    policies, technology-partner pages, dated agency news) across en-au, en-asia and
+    other points of sale. It is a page index, not an API contract.

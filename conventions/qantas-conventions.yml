@@ -1,0 +1,151 @@
+generated: '2026-07-28'
+method: searched
+source: |
+  Qantas Agency Connect NDC documentation — no OpenAPI or NDC schema is published,
+  so nothing here is derived from a machine-readable contract. Every convention
+  below is stated in prose on a public Qantas page and is cited inline.
+docs:
+- https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc
+- https://agencyconnect.qantas.com/en-au/ndc/help-support/glossary
+- https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/ndc-booking-time-limits
+- https://agencyconnect.qantas.com/en-au/policies/agent-information/ndc-shopping-policy
+- https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/language-reference-guide
+caveat: |
+  The Qantas Distribution Platform NDC XML API has no published endpoint, no NDC
+  schema version, no message catalogue and no specification. A technology partner
+  learns the wire contract only after signing a Qantas Distribution Platform Access
+  Agreement. What follows is the semantic contract Qantas publishes in prose: the
+  message family, the shopping qualifiers, the order/ticketing time-limit model and
+  the fair-use rules. It is deliberately incomplete because the source is.
+protocol:
+  style: XML messaging
+  standard: IATA New Distribution Capability (NDC)
+  schema_version_published: false
+  transport: HTTPS (implied; not documented)
+  note: Qantas states QDP "utilises IATA's New Distribution Capability (NDC) standard,
+    and Application Program Interface (API) technology" and is "designed to allow
+    Technology Partners to develop a connection to our NDC XML API".
+authentication:
+  documented: false
+  model: bilateral — credentials are issued after a signed Qantas Distribution Platform
+    Access Agreement grants test-environment access
+  portal_alternative: The QDP portal (powered by Accelya NDC SPRK) issues per-consultant
+    access credentials with two-factor authentication; the portal is a web UI, not
+    an API.
+  docs: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/knowledge-centre/access-credentials-and-password-management
+idempotency:
+  supported: unknown
+  documented: false
+  note: |
+    No idempotency key, retry semantics or duplicate-request contract is published.
+    Qantas does address duplicates commercially rather than protocol-wise: the NDC
+    Shopping Policy names "Duplicate Requests — multiple submissions for the same
+    customer across different platforms or pseudo city codes (PCCs)" as excessive
+    shopping, and a separate duplicate-booking process exists in policy. That is a
+    compliance rule, not an idempotency contract, and no Idempotency pointer is
+    emitted for this provider.
+pagination:
+  documented: false
+  note: Shopping responses are offer sets shaped by qualifiers rather than paged
+    collections; no pagination contract is published.
+shopping_qualifiers:
+  note: Published in the Qantas NDC glossary as the way an agent refines a Shopping
+    or Reshopping request.
+  qualifiers:
+  - Frequent Flyer Number (FFN)
+  - ABN / QBR or corporate account codes
+  - Preferred arrival/departure time
+  - Cabin and service class
+  - Direct or non-stop flight preference
+  - Maximum connections
+  - Specific transfer points
+  - BestPrice filter
+  - Calendar-based offers
+  - Ticketing time limit (TTL)
+  pricing_modes:
+  - Auto pricing — fares, commissions and fees calculated from search criteria and
+    qualifiers
+  - Brand-based pricing — lowest price in each fare family per cabin per flight
+  - Itinerary-based pricing — lowest price per flight (return and multi-city only)
+  - Mini fare rules — summarised fare rules filed per fare
+time_limits:
+  docs: https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/ndc-booking-time-limits
+  ticketing_time_limit:
+    name: Ticketing Time Limit (TTL)
+    semantics: Applies to every Qantas NDC order and is identified at pricing. The
+      ticket must be issued on or before this date or Qantas automatically cancels
+      the order. Once the TTL has expired the order is no longer accessible and a
+      new order must be created.
+    set_by: Qantas, automatically, based on the selected offer
+  price_guarantee:
+    name: Price Guarantee Ticketing Time Limit (PGTTL)
+    semantics: Fare, taxes and surcharges are guaranteed in a Qantas NDC order up to
+      the PGTTL, which is always earlier than or equal to the TTL. The order should
+      not be repriced before the PGTTL; after it passes, an attempt to issue the
+      ticket returns a warning message and the order must be repriced by the selling
+      agent (not the ticketing agent), with the new price overriding the original.
+    max_duration: up to 5 days
+    edifact_parity: false
+    note: Qantas markets PGTTL as "Not available in EDIFACT".
+identifiers:
+  order_id:
+    name: NDC Order ID
+    scope: platform
+    note: An NDC-standard construct, but issued by and resolvable only within QDP.
+      Qantas support asks for "the Order ID or PNR".
+  pnr:
+    name: PNR record locator
+    scope: industry
+  emd:
+    name: Electronic Miscellaneous Document (EMD) number
+    scope: industry
+    note: Issued for ancillaries; Qantas markets instant EMD issuance via NDC.
+  airline_code:
+    name: QF
+    scope: industry (IATA)
+  agency_accreditation:
+    name: IATA / ARC / TIDS / VTC number
+    scope: industry
+  pcc:
+    name: Pseudo City Code
+    scope: industry
+  ffn:
+    name: Qantas Frequent Flyer number
+    scope: platform
+  corporate_account:
+    name: ABN / QBR corporate account code
+    scope: platform
+    note: Qantas Business Rewards keys; no meaning outside Qantas.
+  country_codes: ISO 3166-1 alpha-2, per the QDP portal language reference guide
+errors:
+  envelope_documented: false
+  catalogue_published: false
+  note: |
+    No error catalogue, problem-details format or status-code table is published.
+    The nearest published surfaces are (a) the Agency Debit Memo (ADM) policy, which
+    is a financial dispute instrument rather than an API error class, and (b) a
+    "Known Issues" list that sits behind the Agency Connect login. Qantas markets
+    NDC automation as reducing ADM risk.
+rate_limiting:
+  artifact: rate-limits/qantas-rate-limits.yml
+  summary: 'Fair use is expressed as a Look-to-Book ratio, maximum 2500:1 per agency,
+    with offer limitation, request throttling and access restriction as remedies.'
+versioning:
+  api_versioning_documented: false
+  capability_listing:
+    url: https://www.qantas.com/adobe/assets/urn:aaid:aem:00230b0b-8c1e-4da6-8261-787185e22a1b/original/as/qdp-capability-listing-tool.pdf
+    version: '5.3'
+    updated: '2026-07-10'
+    note: |
+      The Capability Listing Tool is the only versioned, dated artifact Qantas
+      publishes about the NDC surface. It is a per-capability matrix comparing
+      EDIFACT, the Qantas NDC API, the QDP portal and each Certified Technology
+      Partner, using four states — capability available, superior to EDIFACT,
+      not available, coming soon — across itineraries, passengers, pricing, fees
+      and surcharges, ancillaries, ticketing and servicing. It is a capability
+      matrix, not a contract: no operations, messages or schemas are named.
+cross_references:
+  rate_limits: rate-limits/qantas-rate-limits.yml
+  plans: plans/qantas-plans.yml
+  lifecycle: lifecycle/qantas-lifecycle.yml
+  conformance: conformance/qantas-conformance.yml

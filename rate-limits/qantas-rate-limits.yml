@@ -1,0 +1,47 @@
+generated: '2026-07-28'
+method: searched
+source: https://agencyconnect.qantas.com/en-au/policies/agent-information/ndc-shopping-policy
+docs: https://agencyconnect.qantas.com/en-au/policies/agent-information/ndc-shopping-policy
+note: |
+  Qantas publishes no per-second/per-minute request quota and no rate-limit response
+  headers, because it publishes no API contract at all. What it does publish — and it
+  is unusually specific for an airline — is a numeric fair-use limit expressed as a
+  Look-to-Book (L2B) ratio governing NDC shopping traffic on the Qantas Distribution
+  Platform, together with the remedies Qantas will apply when it is exceeded. The
+  limit is enforced per agency, not per API key.
+enforcement: per-agency
+signalling:
+  headers_documented: false
+  response_codes_documented: false
+  note: No rate-limit or quota headers are documented; there is no published contract
+    on which they could be defined.
+rate_limits:
+- name: Maximum Acceptable Look-to-Book (L2B) Ratio
+  limit_count: 2500
+  limit_unit: shopping requests per completed ticketed booking
+  scope: agency
+  surface: Qantas Distribution Platform (QDP) NDC shopping
+  source: https://agencyconnect.qantas.com/en-au/policies/agent-information/ndc-shopping-policy
+  quote: 'Maximum Acceptable L2B Ratio : 2500:1'
+  note: Qantas states most agencies are expected to maintain a ratio well below this
+    threshold.
+excessive_shopping_sources:
+- Robotic shopping — automated processes used to populate offer caches
+- Meta search activity — marketing-driven queries producing high-frequency requests
+- Content aggregators — multiple queries seeking alternative fare or routing options
+- Invalid requests — shopping origin-destination pairs Qantas does not service
+- Duplicate requests — multiple submissions for the same customer across platforms
+  or pseudo city codes (PCCs)
+remedies:
+- Offer limitation
+- Request throttling — capping the number of NDC requests processed within set time
+  intervals
+- Access restriction
+mitigation_guidance:
+- Use BestPrice qualifiers so shopping requests target only best-price offers
+- Use calendar-based shopping instead of many individual date queries
+- Validate origin-destination pairs against Qantas Routelist data via the technology
+  partner
+- Configure targeted meta-search rules to limit low-conversion traffic
+- Avoid robotic queries not tied to bona fide customer interest
+- Implement smart caching to reuse recent valid shopping requests

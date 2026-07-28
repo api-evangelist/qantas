@@ -1,0 +1,97 @@
+generated: '2026-07-28'
+method: searched
+source: Qantas Agency Connect distribution documentation and dated agency news
+note: |
+  Qantas publishes no API versioning policy, no deprecation policy, no SLA and no
+  status page for the Qantas Distribution Platform. What it does publish is a
+  channel-level lifecycle: a dated, priced migration off legacy EDIFACT onto its own
+  NDC platform, announced through a dated agency news feed and a versioned capability
+  matrix. That is the real lifecycle signal for this provider, and it is commercial
+  rather than technical.
+versioning:
+  scheme: not-published
+  current: null
+  docs: null
+  evidence: No NDC schema version, message-set version or API version is stated
+    anywhere Qantas controls. A partner cannot size an integration before signing
+    the Access Agreement.
+  capability_listing:
+    url: https://www.qantas.com/adobe/assets/urn:aaid:aem:00230b0b-8c1e-4da6-8261-787185e22a1b/original/as/qdp-capability-listing-tool.pdf
+    version: '5.3'
+    updated: '2026-07-10'
+    note: The only versioned, dated Qantas document describing the NDC surface. It
+      versions the capability matrix, not the interface.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: unknown
+  evidence: |
+    No API deprecation policy exists. Two adjacent published commitments are the
+    closest analogues, and neither is an interface deprecation policy:
+      - Standard Agency Terms and Conditions 1.3: "Qantas may amend these Terms and
+        any related Qantas policies or procedures by posting updates on the Qantas
+        Agency Connect Site with such changes taking effect on 30 days' notice or
+        earlier if required by law or for operational reasons."
+      - Distribution Surcharge Policy: Qantas "will provide notice of any such
+        changes on the Qantas Agency Connect website."
+  channel_deprecation:
+    target: Legacy GDS EDIFACT
+    mechanism: price, not protocol
+    detail: |
+      From 1 July 2025 every Qantas-marketed segment ticketed through EDIFACT carries
+      a per-segment distribution surcharge (AUD11.50 POS AU / NZD17.50 POS NZ /
+      USD13.00 POS ROW), rising to AUD12.00 / NZD18.00 / USD13.50 on 29 July 2026,
+      while NDC through a Certified Technology Partner, the QDP portal, or Premium
+      NDC is exempt. Qantas is retiring the legacy channel commercially without ever
+      announcing an EDIFACT end-of-life date.
+    sources:
+    - https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/distribution-surcharge-policy
+    - https://agencyconnect.qantas.com/en-au/news/july-2026/distribution-changes
+sla:
+  url: null
+  uptime_target: null
+  evidence: No SLA, uptime commitment or availability target is published for the
+    Qantas Distribution Platform.
+status_page:
+  url: null
+  evidence: |
+    No status page exists. status.qantas.com does not resolve (DNS NXDOMAIN);
+    qantas.statuspage.io does not exist (redirects to the Atlassian Statuspage
+    product page). The nearest surface is a "Known Issues" list on Agency Connect,
+    which sits behind the agency login (307 redirect to /login/) and is therefore
+    not a public status page. No StatusPage pointer is emitted.
+  known_issues_gated: https://agencyconnect.qantas.com/en-au/ndc/help-support/ndc-secured/qantas-ndc-booking-and-technical-support
+roadmap:
+  url: null
+  published: false
+  evidence: |
+    Agency Connect publishes a "Qantas & Technology Partner Future Developments"
+    page listing planned capabilities, but it is behind the agency login. The public
+    Capability Listing Tool PDF marks some capabilities "Coming soon" without dates.
+    No public roadmap with dates exists; no Roadmap pointer is emitted.
+support_lifecycle:
+  first_point_of_contact: The agency's nominated Certified Technology Partner
+  escalation: Qantas NDC booking and technical support via Agency Connect (login
+    required for issue submission)
+  docs: https://agencyconnect.qantas.com/en-au/policies/agent-information/technology-partner-support-helpdesk
+partner_lifecycle:
+  certified_technology_partners: 13
+  url: https://agencyconnect.qantas.com/en-au/ndc/approved-technology-partners
+  current:
+  - Aaron Group
+  - Aeronology
+  - AirGateway
+  - Amadeus
+  - Clarity Travel Technology Solutions
+  - Duffel
+  - Mystifly
+  - Sabre
+  - TPConnects
+  - Travelfusion
+  - Travelport
+  - TravelSky
+  - Verteil
+  removed_since_2022:
+  - Kyte
+  - Serko
+deprecated_operations: []

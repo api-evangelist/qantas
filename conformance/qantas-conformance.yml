@@ -1,0 +1,120 @@
+generated: '2026-07-28'
+method: searched
+source: |
+  Qantas Agency Connect NDC documentation plus live probes. No OpenAPI, no NDC
+  schema and no securityScheme exists to derive from, so every assertion below is
+  evidenced by a published Qantas statement or by a probe result recorded in
+  review.yml / security/.
+standards:
+- id: iata-ndc
+  name: IATA New Distribution Capability (XML)
+  conforms: true
+  evidence: |
+    Qantas: the Qantas Distribution Platform "utilises IATA's New Distribution
+    Capability (NDC) standard, and Application Program Interface (API) technology"
+    and is "designed to allow Technology Partners to develop a connection to our
+    NDC XML API".
+  source: https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc
+  caveat: No NDC schema version, message set or endpoint is published, so the
+    conformance claim cannot be verified against a contract.
+- id: iata-ndc-at-scale
+  name: IATA NDC@Scale certification
+  conforms: true
+  status: historical
+  evidence: |
+    "Qantas Distribution Platform is certified to NDC@Scale, IATA's highest
+    certification" — Qantas' own Distribution Platform FAQ.
+  source: http://web.archive.org/web/20220812031601/https://www.qantas.com/distributionplatform/au/en/frequently-asked-questions.html
+  caveat: |
+    NDC@Scale predates IATA's Airline Retailing Maturity (ARM) index, which replaced
+    the NDC@Scale / Level 4 / Level 3 / Level 2 tiers. Qantas has published no ARM
+    position and no current Qantas page restates the certification — the claim
+    survives only in archived Qantas material and partner write-ups.
+- id: iata-one-order
+  name: IATA ONE Order
+  conforms: unknown
+  evidence: Not claimed anywhere in published Qantas material. Orders and EMDs are
+    referenced, but ONE Order is not.
+- id: iata-bsp-arc
+  name: IATA BSP / ARC settlement accreditation model
+  conforms: true
+  evidence: Agents must hold IATA, ARC, TIDS or VTC accreditation; the QDP portal
+    language reference guide defines ARC, BSP and ADM as the settlement constructs
+    in use.
+  source: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/language-reference-guide
+- id: iso-3166-1
+  name: ISO 3166-1 country codes
+  conforms: true
+  evidence: '"The two-letter country codes are based on the ISO 3166-1 standard" —
+    QDP portal language reference guide.'
+  source: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/language-reference-guide
+- id: apis-advance-passenger-information
+  name: Advance Passenger Information System (APIS)
+  conforms: true
+  evidence: APIS defined and required for travel to/from certain countries in the QDP
+    portal language reference guide.
+  source: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/language-reference-guide
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: 'No OpenAPI/Swagger document exists on any Qantas host. Probed:
+    api.qantas.com/openapi.json, /swagger.json, /docs, /v1 (all 404);
+    www.qantas.com/openapi.json, /swagger.json, /api-docs, /api, /docs (all 404);
+    agencyconnect.qantas.com/openapi.json (404). developer., developers., docs. and
+    api.qantas.com.au do not resolve. No Qantas GitHub organization publishes one.'
+- id: asyncapi
+  name: AsyncAPI
+  conforms: false
+  evidence: No event, streaming or webhook surface is published for the Qantas
+    Distribution Platform.
+- id: graphql
+  name: GraphQL
+  conforms: false
+  evidence: No /graphql surface is documented or discoverable on any Qantas host.
+- id: oauth2
+  name: OAuth 2.0
+  conforms: unknown
+  evidence: No authorization-server metadata (/.well-known/oauth-authorization-server)
+    on any Qantas host; no OAuth documentation. Credentials are issued bilaterally
+    after a signed Access Agreement, so the mechanism is not publicly knowable.
+- id: oidc
+  name: OpenID Connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on www.qantas.com,
+    agencyconnect.qantas.com and api.qantas.com.
+- id: rfc9457-problem-details
+  name: RFC 9457 Problem Details
+  conforms: false
+  evidence: No error format is published; the API is XML/NDC, not JSON.
+- id: rfc9116-security-txt
+  name: RFC 9116 security.txt
+  conforms: true
+  evidence: https://www.qantas.com/.well-known/security.txt returns 200 with Contact,
+    Preferred-Languages and Canonical fields, pointing at a Bugcrowd vulnerability
+    disclosure program.
+  artifact: well-known/qantas-security.txt
+- id: rfc9727-api-catalog
+  name: RFC 9727 /.well-known/api-catalog
+  conforms: false
+  evidence: 404 on every Qantas host probed.
+- id: rfc8594-sunset-header
+  name: RFC 8594 Sunset header
+  conforms: unknown
+  evidence: No API deprecation policy or header behaviour is published.
+- id: apis-json
+  name: APIs.json
+  conforms: false
+  evidence: Qantas publishes no APIs.json index; this repo's apis.yml is an API
+    Evangelist third-party description.
+compliance_programs:
+  published: false
+  note: |
+    No trust centre, no certification page and no named security certification
+    (SOC 2, ISO 27001, PCI DSS, FedRAMP) is published on any Qantas host — the
+    trust-centre probe found nothing. Qantas publishes a consumer Privacy Policy
+    (updated 1 May 2026) covering Australian privacy obligations and EEA
+    interactions, and a Bugcrowd vulnerability disclosure program, but no
+    compliance posture for the distribution platform. No Compliance pointer is
+    emitted for this provider.
+  privacy_policy: https://www.qantas.com/en-au/help/policies/privacy-and-security
+  vulnerability_disclosure: security/qantas-vulnerability-disclosure.yml

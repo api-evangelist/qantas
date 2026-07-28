@@ -1,0 +1,85 @@
+generated: '2026-07-28'
+method: searched
+source: https://agencyconnect.qantas.com/en-au/news
+docs: https://agencyconnect.qantas.com/en-au/news
+subscribe: https://agencyconnect.qantas.com/en-au/news/subscribe
+note: |
+  Qantas publishes no API changelog and no release notes — there is no versioned
+  interface to release against. The functioning substitute is Agency News on Qantas
+  Agency Connect: a dated, categorised feed that carries distribution-platform and
+  NDC change notices alongside fare and network news. Two categories are
+  distribution-relevant — qac:category/qantas-distribution-platform and
+  qac:category/qantas-ndc. Entries below are the distribution/NDC-relevant items
+  from the recent window, captured verbatim from the published pages; the feed is
+  the source of truth and is not mirrored in full here.
+scheme: dated-news-feed
+current_version: null
+version_note: The only versioned Qantas NDC document is the Capability Listing Tool
+  PDF, Version 5.3, updated 10 July 2026.
+categories:
+- qac:category/qantas-distribution-platform
+- qac:category/qantas-ndc
+- qac:category/commercial-policy
+- qac:category/latest-news
+- qac:category/fare-news
+- qac:category/sale-news
+entries:
+- date: '2026-07-21'
+  title: Qantas distribution surcharge changes from 29 July 2026
+  url: https://agencyconnect.qantas.com/en-au/news/july-2026/distribution-changes
+  category: commercial-policy
+  breaking: true
+  summary: |
+    Per-segment distribution surcharge on Qantas-marketed segments changes effective
+    29 July 2026 for EDIFACT and Standard NDC via GDS. EDIFACT POS AU AUD11.50 ->
+    AUD12.00, POS NZ NZD17.50 -> NZD18.00, POS ROW USD13.00 -> USD13.50. Standard
+    NDC via GDS POS AU AUD4.50 -> AUD4.70, POS NZ NZD5.00 -> NZD5.50, POS ROW
+    USD3.00 -> USD4.00. Standard NDC via technology partner / QDP portal and Premium
+    NDC remain zero. Base fares unaffected.
+- date: '2026-06-24'
+  title: Enhancing your Qantas Agency Connect site experience
+  url: https://agencyconnect.qantas.com/en-au/news/june-2026/agency-connect-refresh
+  category: latest-news
+  breaking: true
+  summary: |
+    Agency Connect moved to a new host, agencyconnect.qantas.com, with a redesigned
+    information architecture; legacy www.qantas.com/agencyconnect and
+    /distributionplatform URLs now redirect. Agents advised to update bookmarks. The
+    home-page navigation search bar was temporarily unavailable until mid-July, and
+    service-request enhancements were flagged as arriving in phases.
+- date: '2026-06-22'
+  title: 'Qantas Premium NDC offer: Australia domestic'
+  url: https://agencyconnect.qantas.com/en-au/news/june-2026/ndc-australian-domestic
+  category: sale-news
+  breaking: false
+  summary: Up to 15% off published base fares on Australian domestic Economy in select
+    booking classes, available only via Qantas Premium NDC. Offer ended 30 June 2026.
+- date: '2026-06-15'
+  title: Japan Qantas NDC offer
+  url: https://agencyconnect.qantas.com/en-au/news/june-2026/pos-australia-japan-ndc
+  category: qantas-ndc
+  breaking: false
+  summary: 15% off published base fares Australia-Japan, all cabins, bookable only
+    via Qantas NDC (Standard NDC and Premium NDC) from 15 June 2026. Distribution
+    surcharges still apply to Standard NDC booked through Amadeus, Sabre, Travelport
+    and TravelSky.
+- date: '2026-04-28'
+  title: Bonus commission on select Qantas flights to New Zealand's North Island via
+    Qantas Premium NDC
+  url: https://agencyconnect.qantas.com/en-au/news/apr-2026/northisland-ndc-offer
+  category: qantas-ndc
+  breaking: false
+  summary: 3% bonus commission on published base fares Australia to Auckland and
+    Wellington, available only to agents accessing Qantas Premium NDC. Offer ended
+    10 May 2026.
+- date: '2025-07-01'
+  title: Qantas Distribution Surcharge takes effect
+  url: https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/distribution-surcharge-policy
+  category: commercial-policy
+  breaking: true
+  summary: |
+    Per-segment Qantas Distribution Surcharge applied globally to tickets issued on
+    or after 1 July 2025, collected as a YR fee at ticket issue. EDIFACT AUD11.50 /
+    NZD17.50 / USD13.00 per segment; Standard NDC via GDS AUD4.50 / NZD5.00 /
+    USD3.00; Standard NDC via technology partner or QDP portal and Premium NDC
+    exempt. Surcharge amounts stated as correct at 27 November 2024.

@@ -3,22 +3,21 @@ url: https://raw.githubusercontent.com/api-evangelist/qantas/refs/heads/main/api
 name: Qantas
 kind: company
 humanURL: https://www.qantas.com/
-description: Qantas Airways Limited is Australia's flag carrier and, with its low-cost
-  subsidiary Jetstar, one half of a domestic duopoly alongside Virgin Australia. In
-  the distribution chain Qantas is the supplier of its own inventory — it sits upstream
-  of the GDSs (Amadeus, Sabre, Travelport), the aggregators (Duffel, Travelfusion,
-  Mystifly, Verteil, AirGateway, TPConnects, TravelSky) and the large Australian agency
-  groups (Flight Centre, Corporate Travel Management, Webjet). Its API posture is
-  distribution-only and fully gated. Qantas publishes no developer portal, no OpenAPI
-  or Swagger definition, and no public consumer API; developer., developers., docs.
-  and api.qantas.com.au do not resolve, and api.qantas.com returns 404 on every path
-  probed. The one real API is the Qantas Distribution Platform (QDP) NDC XML API,
-  built with Farelogix (now Accelya) and certified by IATA to NDC@Scale. It is documented
-  in prose on Qantas Agency Connect but no endpoint, schema or specification is published;
-  a technology partner must sign a Qantas Distribution Platform Access Agreement,
+description: Qantas Airways Limited is Australia's flag carrier and, with its low-cost subsidiary
+  Jetstar, one half of a domestic duopoly alongside Virgin Australia. In the distribution
+  chain Qantas is the supplier of its own inventory — it sits upstream of the GDSs (Amadeus,
+  Sabre, Travelport), the aggregators (Duffel, Travelfusion, Mystifly, Verteil, AirGateway,
+  TPConnects, TravelSky) and the large Australian agency groups (Flight Centre, Corporate
+  Travel Management, Webjet). Its API posture is distribution-only and fully gated. Qantas
+  publishes no developer portal, no OpenAPI or Swagger definition, and no public consumer
+  API; developer., developers., docs. and api.qantas.com.au do not resolve, and api.qantas.com
+  returns 404 on every path probed. The one real API is the Qantas Distribution Platform (QDP)
+  NDC XML API, built with Farelogix (now Accelya) and certified by IATA to NDC@Scale. It is
+  documented in prose on Qantas Agency Connect but no endpoint, schema or specification is
+  published; a technology partner must sign a Qantas Distribution Platform Access Agreement,
   subject to Qantas technical and commercial approval, before it is granted test-environment
-  access, and an agency must hold IATA, ARC, TIDS or VTC accreditation. Public docs
-  on how to get in, no public contract and no exit path.
+  access, and an agency must hold IATA, ARC, TIDS or VTC accreditation. Public docs on how
+  to get in, no public contract and no exit path.
 accessModel:
   pricing: unknown
   onboarding: approval
@@ -49,18 +48,17 @@ specificationVersion: '0.19'
 apis:
 - aid: qantas:qantas-distribution-platform-ndc-xml-api
   name: Qantas Distribution Platform NDC XML API
-  description: The Qantas Distribution Platform (QDP) is Qantas' NDC XML API for airline
-    retailing — shopping, offer and order creation, ticketing, ancillaries and post-booking
-    servicing of Qantas (QF) content for travel agencies, GDSs and aggregators. Built
-    in partnership with Farelogix Inc. (now Accelya) on IATA's New Distribution Capability
-    standard, and certified by IATA to NDC@Scale. Qantas states the platform "does
-    not have a customer-facing user interface" and is "designed to allow Technology
-    Partners to develop a connection to our NDC XML API". No endpoint host, no NDC
-    schema version and no machine-readable specification are published; access requires
-    a signed Qantas Distribution Platform Access Agreement, and agencies must hold
-    IATA, ARC, TIDS or VTC accreditation. Agencies that cannot connect through a Certified
-    Technology Partner may instead use the QDP portal, a web UI powered by Accelya
-    NDC SPRK.
+  description: The Qantas Distribution Platform (QDP) is Qantas' NDC XML API for airline retailing
+    — shopping, offer and order creation, ticketing, ancillaries and post-booking servicing
+    of Qantas (QF) content for travel agencies, GDSs and aggregators. Built in partnership
+    with Farelogix Inc. (now Accelya) on IATA's New Distribution Capability standard, and
+    certified by IATA to NDC@Scale. Qantas states the platform "does not have a customer-facing
+    user interface" and is "designed to allow Technology Partners to develop a connection
+    to our NDC XML API". No endpoint host, no NDC schema version and no machine-readable specification
+    are published; access requires a signed Qantas Distribution Platform Access Agreement,
+    and agencies must hold IATA, ARC, TIDS or VTC accreditation. Agencies that cannot connect
+    through a Certified Technology Partner may instead use the QDP portal, a web UI powered
+    by Accelya NDC SPRK.
   humanURL: https://agencyconnect.qantas.com/en-au/ndc
   tags:
   - NDC
@@ -93,7 +91,31 @@ apis:
     url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/terms-conditions
   - type: Pricing
     url: https://agencyconnect.qantas.com/en-au/ndc/premium
+  - type: Documentation
+    url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/what-is-qdpp
+  - type: CapabilityListing
+    url: https://www.qantas.com/adobe/assets/urn:aaid:aem:00230b0b-8c1e-4da6-8261-787185e22a1b/original/as/qdp-capability-listing-tool.pdf
+  - type: KnowledgeBase
+    url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/knowledge-centre
+  - type: LanguageReference
+    url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/language-reference-guide
+  - type: RateLimits
+    url: rate-limits/qantas-rate-limits.yml
+  - type: Conventions
+    url: conventions/qantas-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/qantas-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/qantas-changelog.yml
+  - type: Conformance
+    url: conformance/qantas-conformance.yml
+  - type: Plans
+    url: plans/qantas-plans.yml
 common:
+- type: VulnerabilityDisclosure
+  url: security/qantas-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/qantas-domain-security.yml
 - type: Website
   url: https://www.qantas.com/
 - type: Portal
@@ -106,6 +128,46 @@ common:
   url: https://www.qantas.com/.well-known/security.txt
 - type: LinkedIn
   url: https://www.linkedin.com/company/qantas
+- type: WellKnown
+  url: well-known/qantas-well-known.yml
+- type: SecurityTxt
+  url: well-known/qantas-security.txt
+- type: Security
+  url: https://www.qantas.com/.well-known/security.txt
+- type: LLMsTxt
+  url: llms/qantas-llms.txt
+- type: Conformance
+  url: conformance/qantas-conformance.yml
+- type: Lifecycle
+  url: lifecycle/qantas-lifecycle.yml
+- type: ChangeLog
+  url: changelog/qantas-changelog.yml
+- type: RateLimits
+  url: rate-limits/qantas-rate-limits.yml
+- type: Plans
+  url: plans/qantas-plans.yml
+- type: Conventions
+  url: conventions/qantas-conventions.yml
+- type: Packages
+  url: packages/qantas-packages.yml
+- type: GitHubOrganization
+  url: https://github.com/qantasairways
+- type: Support
+  url: https://help.qantas.com/agencyconnect/s/topic/0TOMo000000MuMvOAK/qantas-ndc
+- type: Blog
+  url: https://agencyconnect.qantas.com/en-au/news
+- type: PrivacyPolicy
+  url: https://www.qantas.com/en-au/help/policies/privacy-and-security
+- type: Pricing
+  url: https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/distribution-surcharge-policy
+- type: SignUp
+  url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/register
+- type: GettingStarted
+  url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/knowledge-centre
+- type: Glossary
+  url: https://agencyconnect.qantas.com/en-au/ndc/help-support/glossary
+- type: Partners
+  url: https://agencyconnect.qantas.com/en-au/ndc/approved-technology-partners
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
