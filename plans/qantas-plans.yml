@@ -159,3 +159,33 @@ surcharge_exceptions:
 change_policy: Qantas reserves the right to review the terms, conditions and amount
   of the Qantas Distribution Surcharge from time to time, and will provide notice of
   any such changes on the Qantas Agency Connect website.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: Premium NDC
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Standard NDC (via a Certified Technology Partner or the QDP portal)
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Standard NDC via GDS
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: EDIFACT via GDS (legacy)
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
