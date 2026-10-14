@@ -14,6 +14,17 @@
   relationship: carrier-coverage
   status: not-a-workflow
   arazzo: null
+- slug: qantas-siteminder
+  label: SiteMinder
+  partner: siteminder
+  partner_name: SiteMinder
+  type: coverage
+  channel: partner-built
+  evidence: https://integrations-api.siteminder.com/public/partners/all?lang=en
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
 - slug: qantas-google-ad-tech-providers
   label: Google Ad Tech Providers
   partner_name: Google Ad Tech Providers
@@ -35,16 +46,5 @@
     api_families_basis: null
     detected_by: sweep-adtech.py
     detected: '2026-10-14'
-  status: not-a-workflow
-  arazzo: null
-- slug: qantas-siteminder
-  label: SiteMinder
-  partner: siteminder
-  partner_name: SiteMinder
-  type: coverage
-  channel: partner-built
-  evidence: https://integrations-api.siteminder.com/public/partners/all?lang=en
-  source: edge
-  relationship: connector-coverage
   status: not-a-workflow
   arazzo: null
