@@ -37,3 +37,14 @@
     detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
+- slug: qantas-siteminder
+  label: SiteMinder
+  partner: siteminder
+  partner_name: SiteMinder
+  type: coverage
+  channel: partner-built
+  evidence: https://integrations-api.siteminder.com/public/partners/all?lang=en
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
