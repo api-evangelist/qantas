@@ -1,0 +1,54 @@
+generated: '2026-10-14'
+method: searched
+checked:
+- https://duffel.com/flights/airlines
+- https://storage.googleapis.com/tcfac/additional-consent-providers.csv
+marketplace_apps: []
+edges:
+- partner_name: Google Ad Tech Providers
+  partner: null
+  partner_match: domain
+  type: contract
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://storage.googleapis.com/tcfac/additional-consent-providers.csv
+  contract_reference:
+    register: Google Ad Tech Providers (Additional Consent)
+    spec_file: null
+    role: google-atp
+    registered_name: Qantas
+    register_id: '1967'
+    products:
+    - Qantas
+    matched_domain: qantas.com
+    api_families: null
+    api_families_basis: null
+    detected_by: sweep-adtech.py
+    detected: '2026-10-14'
+  detected_by: sweep-adtech.py
+  detected: '2026-10-14'
+- partner_name: Duffel
+  partner: duffel
+  partner_match: aggregator
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: carrier-coverage
+  evidence: https://duffel.com/flights/airlines
+  detected_by: sweep-travel.py
+  first_seen: '2026-10-14'
+  iata_codes:
+  - QF
+  ndc_direct: true
+  content_source:
+  - qantas
+  features_in_production:
+  - baggage
+  - baggage allowance
+  - cancellation
+  - changes
+  - loyalty programme
+  - seat selection
+  - void
+source: https://duffel.com/flights/airlines
