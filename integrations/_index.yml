@@ -14,17 +14,6 @@
   relationship: carrier-coverage
   status: not-a-workflow
   arazzo: null
-- slug: qantas-siteminder
-  label: SiteMinder
-  partner: siteminder
-  partner_name: SiteMinder
-  type: coverage
-  channel: partner-built
-  evidence: https://integrations-api.siteminder.com/public/partners/all?lang=en
-  source: edge
-  relationship: connector-coverage
-  status: not-a-workflow
-  arazzo: null
 - slug: qantas-google-ad-tech-providers
   label: Google Ad Tech Providers
   partner_name: Google Ad Tech Providers
@@ -77,5 +66,44 @@
       24 months'
     detected_by: sweep-official-sdks.py
     detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: qantas-siteminder
+  label: SiteMinder
+  partner: siteminder
+  partner_name: SiteMinder
+  type: coverage
+  channel: partner-built
+  evidence: https://integrations-api.siteminder.com/public/partners/all?lang=en
+  source: edge
+  relationship: connector-coverage
+  status: not-a-workflow
+  arazzo: null
+- slug: qantas-mozilla-firefox-add-ons-amo
+  label: Mozilla Firefox Add-ons (AMO)
+  partner_name: Mozilla Firefox Add-ons (AMO)
+  category: browser extension (Firefox Add-ons)
+  type: marketplace
+  marketplace: firefox-add-ons
+  channel: partner-built
+  evidence: https://addons.mozilla.org/en-US/firefox/addon/qantas-shopping-point-prompter/
+  source: edge
+  relationship: platform-app
+  contract_reference:
+    register: 'Firefox Add-ons (addons.mozilla.org public API v5 search: authors, homepage, support_url)'
+    spec_file: null
+    role: firefox-add-on-publisher
+    registered_name: Qantas Frequent Flyer
+    register_id: https://addons.mozilla.org/api/v5/addons/addon/qantas-shopping-point-prompter/
+    matched_domain: qantas.com
+    matched_by: domain
+    matched_name: Qantas Frequent Flyer
+    builder: publisher
+    signal_note: ONE edge per provider for the store; listing alone = participation. The AMO author name (builder
+      publisher) or homepage + support_url both on the provider's domain (builder domain-attested) identifies it;
+      extension / user counts are context, never counted. No Mozilla repo in all/*, so no platform-side edge exists
+      to mirror.
+    detected_by: sweep-browser-extension-stores.py
+    detected: '2026-10-21'
   status: not-a-workflow
   arazzo: null
