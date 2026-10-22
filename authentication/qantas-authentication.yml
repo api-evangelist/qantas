@@ -1,0 +1,12 @@
+generated: '2026-10-20'
+method: none
+source: conventions/qantas-conventions.yml (authentication block, from Qantas Agency Connect docs read 2026-07-28)
+docs: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/knowledge-centre/access-credentials-and-password-management
+schemes: []
+note: |
+  Checked: Qantas publishes no authentication scheme for the Qantas Distribution Platform NDC XML API --
+  no OpenAPI securityScheme, no OAuth/API-key documentation, no token endpoint. Credentials are
+  bilateral, issued after a signed Qantas Distribution Platform Access Agreement. The only documented
+  credentials are for the QDP portal (a web UI powered by Accelya NDC SPRK), which issues per-consultant
+  access credentials with two-factor authentication; that is a human login, not an API scheme.
+  No OAuth is documented, so no scopes/ artifact is written.

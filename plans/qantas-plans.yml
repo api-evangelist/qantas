@@ -1,22 +1,47 @@
-generated: '2026-07-28'
+name: Qantas pricing
+generated: '2026-10-20'
 method: searched
 source: https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/distribution-surcharge-policy
+archived_copy: https://web.archive.org/web/2026id_/https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/distribution-surcharge-policy
+audience: business-product
+pricing_basis: usage-other
+published: true
+delivery:
+  delivery: managed
+plan_count: 4
 docs:
 - https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/distribution-surcharge-policy
 - https://agencyconnect.qantas.com/en-au/ndc/premium
 - https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc
 - https://agencyconnect.qantas.com/en-au/news/july-2026/distribution-changes
-note: |
-  Qantas does not sell API access; it prices DISTRIBUTION CHANNELS. There is no
+note: 'Qantas does not sell API access; it prices DISTRIBUTION CHANNELS. There is no
+
   subscription, no metered API pricing and no free tier. What is published is a
+
   per-segment Qantas Distribution Surcharge collected as a YR fee at ticket issue,
+
   which varies by the channel the booking was made through. The effect is a price
-  ladder that makes the legacy GDS/EDIFACT channel the most expensive and Qantas'
+
+  ladder that makes the legacy GDS/EDIFACT channel the most expensive and Qantas''
+
   own NDC platform free — pricing, not protocol, is the migration lever. Access to
+
   the cheapest tier (Premium NDC) is invitation/criteria based, not purchasable.
-currency_note: Surcharge is automatically priced and collected through a YR fee at
-  ticket issue and converted to local currency at the Bank Selling Rate on the day
-  of issue. POS AU amounts are exclusive of Australian GST.
+
+
+  2026-10-20 re-check: agencyconnect.qantas.com timed out from this pipeline (HTTP status none, plain and headless
+
+  browser), so the surcharge table was re-read from the Wayback Machine 2026 capture in archived_copy. That
+
+  capture shows the amounts announced on 21 July 2026 now in force (EDIFACT AUD12.00 / NZD18.00 / USD13.50;
+
+  Standard NDC via GDS AUD4.70 / NZD5.50 / USD4.00; Standard NDC and Premium NDC ''Exempt''). price_text values
+
+  are copied verbatim from that capture; the live page could not be fetched to re-verify them today.
+
+  '
+currency_note: Surcharge is automatically priced and collected through a YR fee at ticket issue and converted to
+  local currency at the Bank Selling Rate on the day of issue. POS AU amounts are exclusive of Australian GST.
 plans:
 - name: Premium NDC
   slug: premium-ndc
@@ -45,11 +70,28 @@ plans:
   - Agent adhering to Qantas' compliance framework and Standard Agency Terms and Conditions
   - Agent meeting Qantas' Minimum Servicing and Brand Requirements
   restrictions:
-  - Access is by invitation only, or by Expression of Interest submitted behind an
-    authenticated login
+  - Access is by invitation only, or by Expression of Interest submitted behind an authenticated login
   - May be subject to reaching an agreement with the agent's technology partner
   - Not available in China
   url: https://agencyconnect.qantas.com/en-au/ndc/premium
+  description: Invitation/EOI NDC channel for agents with a Qantas commercial agreement; exempt from the Qantas
+    Distribution Surcharge.
+  price_text: Exempt
+  price: Exempt
+  billing_period: per Qantas marketed flight segment
+  price_by_point_of_sale:
+  - point_of_sale: AU
+    price_text: Exempt
+  - point_of_sale: NZ
+    price_text: Exempt
+  - point_of_sale: ROW
+    price_text: Exempt
+  features:
+  - No Qantas distribution surcharge on agent bookings, regardless of technology partner
+  - Lower domestic fares than Standard NDC
+  - All published NDC sale fares
+  - Free standard seat selection on Qantas-ticketed flights for Bronze Frequent Flyers
+  limits: []
 - name: Standard NDC (via a Certified Technology Partner or the QDP portal)
   slug: standard-ndc-non-gds
   access: agreement
@@ -67,10 +109,24 @@ plans:
     amount: 0
     currency: USD
     unit: per Qantas-marketed flight segment
-  note: Exempt from the distribution surcharge. Reached either through one of the
-    Certified Technology Partners or directly through the Qantas Distribution Platform
-    portal (QDPp), which has no setup fees.
+  note: Exempt from the distribution surcharge. Reached either through one of the Certified Technology Partners
+    or directly through the Qantas Distribution Platform portal (QDPp), which has no setup fees.
   url: https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc
+  description: Standard NDC through a non-GDS Certified Technology Partner or the QDP portal; exempt from the surcharge.
+  price_text: Exempt
+  price: Exempt
+  billing_period: per Qantas marketed flight segment
+  price_by_point_of_sale:
+  - point_of_sale: AU
+    price_text: Exempt
+  - point_of_sale: NZ
+    price_text: Exempt
+  - point_of_sale: ROW
+    price_text: Exempt
+  features:
+  - Exempt from the distribution surcharge. Reached either through one of the Certified Technology Partners or directly
+    through the Qantas Distribution Platform portal (QDPp), which has no setup fees.
+  limits: []
 - name: Standard NDC via GDS
   slug: standard-ndc-gds
   access: agreement
@@ -82,8 +138,8 @@ plans:
     currency: AUD
     unit: per Qantas-marketed flight segment
     effective: '2025-07-01'
-    note: Australian domestic itineraries sold in Australia collect AUD4.50 plus AUD0.45
-      UO. Exclusive of Australian GST.
+    note: Australian domestic itineraries sold in Australia collect AUD4.50 plus AUD0.45 UO. Exclusive of Australian
+      GST.
   - point_of_sale: NZ
     amount: 5.0
     currency: NZD
@@ -108,6 +164,23 @@ plans:
     - point_of_sale: ROW
       amount: 4.0
       currency: USD
+    status: in force per 2026 archived capture
+  description: NDC content booked through a GDS (Amadeus, Sabre, Travelport, TravelSky); per-segment surcharge.
+  price_text: AUD4.70
+  price: 4.7
+  currency: AUD
+  billing_period: per Qantas marketed flight segment
+  price_by_point_of_sale:
+  - point_of_sale: AU
+    price_text: AUD4.70
+  - point_of_sale: NZ
+    price_text: NZD5.50
+  - point_of_sale: ROW
+    price_text: USD4.00
+  features:
+  - NDC content booked through a GDS (Amadeus, Sabre, Travelport, TravelSky); per-segment surcharge.
+  limits: []
+  uo_text: 'Standard NDC via GDS: AUD4.70 plus AUD0.47UO'
 - name: EDIFACT via GDS (legacy)
   slug: edifact-gds
   access: agreement
@@ -119,8 +192,8 @@ plans:
     currency: AUD
     unit: per Qantas-marketed flight segment
     effective: '2025-07-01'
-    note: Australian domestic itineraries sold in Australia collect AUD11.50 plus AUD1.15
-      UO. Exclusive of Australian GST.
+    note: Australian domestic itineraries sold in Australia collect AUD11.50 plus AUD1.15 UO. Exclusive of Australian
+      GST.
   - point_of_sale: NZ
     amount: 17.5
     currency: NZD
@@ -145,20 +218,35 @@ plans:
     - point_of_sale: ROW
       amount: 13.5
       currency: USD
-  note: All Qantas-marketed segments booked in EDIFACT incur the surcharge, regardless
-    of whether the agency also has access to Premium NDC.
+    status: in force per 2026 archived capture
+  note: All Qantas-marketed segments booked in EDIFACT incur the surcharge, regardless of whether the agency also
+    has access to Premium NDC.
+  description: Legacy GDS EDIFACT bookings; highest per-segment surcharge.
+  price_text: AUD12.00
+  price: 12.0
+  currency: AUD
+  billing_period: per Qantas marketed flight segment
+  price_by_point_of_sale:
+  - point_of_sale: AU
+    price_text: AUD12.00
+  - point_of_sale: NZ
+    price_text: NZD18.00
+  - point_of_sale: ROW
+    price_text: USD13.50
+  features:
+  - All Qantas-marketed segments booked in EDIFACT incur the surcharge, regardless of whether the agency also has
+    access to Premium NDC.
+  limits: []
+  uo_text: 'EDIFACT: AUD12.00 plus AUD1.20UO'
 surcharge_exceptions:
 - Tickets issued through Qantas direct booking channels
 - Tickets issued via the Qantas Distribution Platform portal (QDPp)
-- Tickets issued via Premium NDC, or via Standard NDC through a non-GDS technology
-  partner
+- Tickets issued via Premium NDC, or via Standard NDC through a non-GDS technology partner
 - Group bookings quoted, booked and ticketed using the Qantas Group Travel website
-- Specific routes including the Qantas and Emirates joint-business routes between
-  Australia and New Zealand, and between Australia/New Zealand and the UK, Europe,
-  North Africa, the Middle East, Thailand and Singapore
-change_policy: Qantas reserves the right to review the terms, conditions and amount
-  of the Qantas Distribution Surcharge from time to time, and will provide notice of
-  any such changes on the Qantas Agency Connect website.
+- Specific routes including the Qantas and Emirates joint-business routes between Australia and New Zealand, and
+  between Australia/New Zealand and the UK, Europe, North Africa, the Middle East, Thailand and Singapore
+change_policy: Qantas reserves the right to review the terms, conditions and amount of the Qantas Distribution Surcharge
+  from time to time, and will provide notice of any such changes on the Qantas Agency Connect website.
 x-canonical:
   generated: '2026-10-08'
   vocabulary: all/0-working/economics/plans-canonical.yml

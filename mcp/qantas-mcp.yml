@@ -1,0 +1,18 @@
+type: MCPServer
+name: Qantas MCP server
+generated: '2026-10-20'
+method: none
+status: none
+description: >-
+  Qantas publishes no MCP server, hosted or local. A web search for a Qantas MCP server
+  (2026-10-20) returned nothing about Qantas, and the pre-flight dossier found no MCP docs
+  or tool table on www.qantas.com, agencyconnect.qantas.com or help.qantas.com. No candidate
+  tool list is derived because Qantas publishes no OpenAPI or other machine-readable contract:
+  its only API, the Qantas Distribution Platform NDC XML API, is documented in prose and
+  gated behind a QDP Access Agreement.
+source: https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc
+deployment:
+  mode: none
+  auth: unknown
+  verified: searched
+tools: []

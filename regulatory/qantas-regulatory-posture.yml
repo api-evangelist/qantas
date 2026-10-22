@@ -1,0 +1,71 @@
+generated: '2026-10-20'
+method: searched
+probe: true
+source: https://www.qantas.com/en-au/help/policies/privacy-and-security
+signals:
+  data_subject_request:
+    url: https://www.qantas.com/en-au/help/policies/privacy-and-security
+    section: Access to, and correction of, information about you
+    channel: PrivacyOfficer@qantas.com.au
+    rights_named: [access, correction, further processing details (EU), deletion (EU), restriction (EU), withdrawal of consent (EU), objection (EU), complaint to supervisory authority (EU)]
+    escalation: Office of the Australian Information Commissioner (Australia); Office of the Information Commissioner (United Kingdom)
+    evidence:
+    - source: https://www.qantas.com/en-au/help/policies/privacy-and-security
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "In some countries you have the right to access, or correct, the personal information that we hold about you. If you would like to request access to, or correction of, your personal information that we hold, please contact us using the details in the section titled ' Contacting Us '."
+    - source: https://www.qantas.com/en-au/help/policies/privacy-and-security
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "In addition to the rights outlined elsewhere in this Privacy Policy, under certain conditions you may have the right under EU data protection law to ask us to:"
+    note: >-
+      Access and correction are offered "in some countries" via the Contacting Us channel (Customer Feedback
+      Form or PrivacyOfficer@qantas.com.au); deletion and restriction are framed only as EU-law rights under
+      the "Additional Rights Under EU Law" section. No response SLA beyond "a reasonable timeframe" is stated,
+      and data portability is not named on the page.
+  data_retention:
+    url: https://www.qantas.com/en-au/help/policies/privacy-and-security
+    section: Retention period
+    evidence:
+    - source: https://www.qantas.com/en-au/help/policies/privacy-and-security
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "Our retention periods for personal data are based on business needs and legal requirements. We retain personal data for as long as is necessary for the processing purpose(s) for which the information was collected, and any other permissible, related purpose."
+    - source: https://www.qantas.com/en-au/help/policies/privacy-and-security
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "When personal data is no longer needed, we either securely destroy it, or irreversibly anonymise the data (and we may further retain and use the anonymised information)."
+    note: >-
+      Purpose-limited retention with destruction or anonymisation at end of life; no fixed retention periods
+      or schedule are published.
+  subprocessors:
+    url: https://www.qantas.com/en-au/help/policies/privacy-and-security
+    section: Our service providers
+    evidence:
+    - source: https://www.qantas.com/en-au/help/policies/privacy-and-security
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "The countries in which these third parties are located include the United Kingdom, the United States, Germany, South Africa and the Philippines."
+    note: >-
+      The policy names categories of processors (global travel distribution and reservation systems, fraud
+      prevention, customer service providers, credit/financial product managers) and their countries, but
+      publishes no named subprocessor list.
+  data_residency:
+    url: https://www.qantas.com/en-au/help/policies/privacy-and-security
+    section: European data protection laws
+    evidence:
+    - source: https://www.qantas.com/en-au/help/policies/privacy-and-security
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: "In countries which have not had these approvals, we will use appropriate safeguards to protect any personal information being transferred, such as EU Commission-approved model contractual clauses or binding corporate rules permitted by applicable legal requirements."
+    note: >-
+      No residency commitment: the policy describes cross-border transfer out of the EEA under adequacy
+      decisions or SCCs/BCRs, with personal data disclosed to processors in several countries.
+pages_checked:
+- url: https://www.qantas.com/en-au/help/policies/privacy-and-security
+  http_status: 200
+- url: https://www.qantas.com/.well-known/security.txt
+  http_status: 200
+- url: https://agencyconnect.qantas.com/en-au/standard-agency-terms-conditions
+  http_status: null
+  note: not fetched in pre-flight (browser error)

@@ -1,8 +1,13 @@
 aid: qantas
+
 url: https://raw.githubusercontent.com/api-evangelist/qantas/refs/heads/main/apis.yml
+
 name: Qantas
+
 kind: company
+
 humanURL: https://www.qantas.com/
+
 description: Qantas Airways Limited is Australia's flag carrier and, with its low-cost subsidiary
   Jetstar, one half of a domestic duopoly alongside Virgin Australia. In the distribution
   chain Qantas is the supplier of its own inventory — it sits upstream of the GDSs (Amadeus,
@@ -18,6 +23,7 @@ description: Qantas Airways Limited is Australia's flag carrier and, with its lo
   subject to Qantas technical and commercial approval, before it is granted test-environment
   access, and an agency must hold IATA, ARC, TIDS or VTC accreditation. Public docs on how
   to get in, no public contract and no exit path.
+
 deliveryModel:
   model: saas
   open_source: false
@@ -29,6 +35,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: approval
@@ -42,7 +49,9 @@ accessModel:
   - https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/register
   generated: '2026-07-28'
   method: observed
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/qantas.png
+
+image: https://www.qantas.com/adobe/assets/urn:aaid:aem:bbaccdc3-7c82-46be-b780-2cc86d90d51f/original/as/default-meta-image.png
+
 tags:
 - Travel
 - Australia
@@ -53,6 +62,7 @@ tags:
 - Booking
 - Corporate Travel
 - Loyalty
+
 tags_raw:
 - Travel
 - Australia
@@ -63,9 +73,85 @@ tags_raw:
 - Booking
 - Corporate Travel
 - Loyalty
+
 created: '2026-07-28'
-modified: '2026-07-28'
+
+modified: '2026-10-20'
+
 specificationVersion: '0.23'
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+common:
+- type: Sandbox
+  url: sandbox/qantas-sandbox.yml
+- type: Deprecation
+  url: lifecycle/qantas-lifecycle.yml
+- type: Hosts
+  url: hosts/qantas-hosts.yml
+- type: IntegrationEdges
+  url: integrations/qantas-integration-edges.yml
+- type: Vendors
+  url: vendors/qantas-vendors.yml
+- type: SDKs
+  url: packages/qantas-packages.yml
+- type: VulnerabilityDisclosure
+  url: security/qantas-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/qantas-domain-security.yml
+- type: Website
+  url: https://www.qantas.com/
+- type: Portal
+  url: https://agencyconnect.qantas.com/en-au
+- type: Documentation
+  url: https://agencyconnect.qantas.com/en-au/ndc
+- type: TermsOfService
+  url: https://agencyconnect.qantas.com/en-au/standard-agency-terms-conditions
+- type: VulnerabilityDisclosure
+  url: https://www.qantas.com/.well-known/security.txt
+- type: LinkedIn
+  url: https://www.linkedin.com/company/qantas
+- type: WellKnown
+  url: well-known/qantas-well-known.yml
+- type: SecurityTxt
+  url: well-known/qantas-security.txt
+- type: Security
+  url: https://www.qantas.com/.well-known/security.txt
+- type: Conformance
+  url: conformance/qantas-conformance.yml
+- type: Lifecycle
+  url: lifecycle/qantas-lifecycle.yml
+- type: ChangeLog
+  url: changelog/qantas-changelog.yml
+- type: RateLimits
+  url: rate-limits/qantas-rate-limits.yml
+- type: Plans
+  url: plans/qantas-plans.yml
+- type: Conventions
+  url: conventions/qantas-conventions.yml
+- type: Packages
+  url: packages/qantas-packages.yml
+- type: GitHubOrganization
+  url: https://github.com/qantasairways
+- type: Support
+  url: https://help.qantas.com/agencyconnect/s/topic/0TOMo000000MuMvOAK/qantas-ndc
+- type: Blog
+  url: https://agencyconnect.qantas.com/en-au/news
+- type: PrivacyPolicy
+  url: https://www.qantas.com/en-au/help/policies/privacy-and-security
+- type: Pricing
+  url: https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/distribution-surcharge-policy
+- type: SignUp
+  url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/register
+- type: GettingStarted
+  url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/knowledge-centre
+- type: Glossary
+  url: https://agencyconnect.qantas.com/en-au/ndc/help-support/glossary
+- type: Partners
+  url: https://agencyconnect.qantas.com/en-au/ndc/approved-technology-partners
+
 apis:
 - aid: qantas:qantas-distribution-platform-ndc-xml-api
   name: Qantas Distribution Platform NDC XML API
@@ -132,63 +218,28 @@ apis:
     url: conformance/qantas-conformance.yml
   - type: Plans
     url: plans/qantas-plans.yml
-common:
-- type: VulnerabilityDisclosure
-  url: security/qantas-vulnerability-disclosure.yml
-- type: DomainSecurity
-  url: security/qantas-domain-security.yml
-- type: Website
-  url: https://www.qantas.com/
-- type: Portal
-  url: https://agencyconnect.qantas.com/en-au
-- type: Documentation
-  url: https://agencyconnect.qantas.com/en-au/ndc
-- type: TermsOfService
-  url: https://agencyconnect.qantas.com/en-au/standard-agency-terms-conditions
-- type: VulnerabilityDisclosure
-  url: https://www.qantas.com/.well-known/security.txt
-- type: LinkedIn
-  url: https://www.linkedin.com/company/qantas
-- type: WellKnown
-  url: well-known/qantas-well-known.yml
-- type: SecurityTxt
-  url: well-known/qantas-security.txt
-- type: Security
-  url: https://www.qantas.com/.well-known/security.txt
-- type: LLMsTxt
-  url: llms/qantas-llms.txt
-- type: Conformance
-  url: conformance/qantas-conformance.yml
-- type: Lifecycle
-  url: lifecycle/qantas-lifecycle.yml
-- type: ChangeLog
-  url: changelog/qantas-changelog.yml
-- type: RateLimits
-  url: rate-limits/qantas-rate-limits.yml
-- type: Plans
-  url: plans/qantas-plans.yml
-- type: Conventions
-  url: conventions/qantas-conventions.yml
-- type: Packages
-  url: packages/qantas-packages.yml
-- type: GitHubOrganization
-  url: https://github.com/qantasairways
-- type: Support
-  url: https://help.qantas.com/agencyconnect/s/topic/0TOMo000000MuMvOAK/qantas-ndc
-- type: Blog
-  url: https://agencyconnect.qantas.com/en-au/news
-- type: PrivacyPolicy
-  url: https://www.qantas.com/en-au/help/policies/privacy-and-security
-- type: Pricing
-  url: https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/distribution-surcharge-policy
-- type: SignUp
-  url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/register
-- type: GettingStarted
-  url: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/knowledge-centre
-- type: Glossary
-  url: https://agencyconnect.qantas.com/en-au/ndc/help-support/glossary
-- type: Partners
-  url: https://agencyconnect.qantas.com/en-au/ndc/approved-technology-partners
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+
+x-coverage:
+  state: covered
+  reason: identity-verified
+  detail: Website www.qantas.com answers 200 (browser UA) with title "Fly with the Spirit of Australia | Qantas". Image replaced with the og:image the site publishes (alt "qantas logo red background white tail"); the prior S3 icon returned 403. agencyconnect.qantas.com (Akamai edge) accepts TCP but stalls the TLS handshake for curl, a headless browser and WebFetch on 2026-10-20, so its pointers are unverified, not confirmed dead, and were kept.
+  generated: '2026-10-20'
+  evidence:
+  - url: https://www.qantas.com/
+    status: 200
+  - url: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/qantas.png
+    status: 403
+  - url: https://agencyconnect.qantas.com/en-au/ndc
+    status: 0
+  - url: https://help.qantas.com/agencyconnect/s/topic/0TOMo000000MuMvOAK/qantas-ndc
+    status: 200
+  - url: https://github.com/qantasairways
+    status: 200
+  - url: https://www.qantas.com/en-au/help/policies/privacy-and-security
+    status: 200
+x-enrichment:
+  date: '2026-10-20'
+  status: enriched
+  artifacts_added: 6
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic

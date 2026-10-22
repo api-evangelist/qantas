@@ -1,0 +1,17 @@
+generated: '2026-10-20'
+method: derived
+source: review.yml (contractualLockIn, verbatim quotes from the Qantas Distribution Platform "Connect" page, archived capture 2022-08-13, fetched 2026-07-28 HTTP 200)
+docs: https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/register
+description: |
+  Qantas operates a Qantas Distribution Platform TEST ENVIRONMENT for the NDC XML API, but it is not
+  self-serve and nothing about it (host, credentials, test data, test cards) is published. Qantas states:
+  "New Technology Partners wishing to connect into our NDC XML API are required to sign a Qantas
+  Distribution Platform Access Agreement, prior to being granted access to our test environment."
+  and "Access to the test environment does not guarantee access to the Qantas Distribution Platform
+  production environment or IATA NDC accreditation. Any development costs associated with connecting
+  to the Qantas Distribution Platform test environment, or to reach IATA NDC certification is to be
+  borne solely by the Technology Partner."
+self_serve: false
+access: Signed Qantas Distribution Platform Access Agreement, subject to Qantas technical and commercial approval
+test_values_published: false
+note: No test keys, test fixtures, test cards or time-simulation tooling are published. agencyconnect.qantas.com timed out from this pipeline on 2026-10-20, so the register page could not be re-read today.

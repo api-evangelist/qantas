@@ -1,12 +1,17 @@
-generated: '2026-07-28'
+generated: '2026-10-20'
 method: searched
 source: npm registry search, PyPI, GitHub org lookups
-note: |
-  Qantas publishes NO client library, SDK or CLI for any Qantas API. There is no
+note: 'Qantas publishes NO client library, SDK or CLI for any Qantas API. There is no
+
   public API to write one against. The packages below are real, first-party Qantas
+
   Group npm publications, but every one of them is front-end/design tooling rather
+
   than an API client — so no `SDKs` pointer is emitted for this provider, and the
+
   sdk_count signal is genuinely zero. Both are also unmaintained.
+
+  '
 registries_probed:
   npm: searched "qantas" — 2 first-party packages, both front-end libraries
   pypi: qantas, qantas-api, ndc-qantas all 404
@@ -23,21 +28,18 @@ github_orgs:
   created: '2019-01-16'
   public_repos: 0
   status: verified-empty
-  note: The organization exists and is Qantas Airways (website https://www.qantas.com/),
-    but publishes zero public repositories. The runway repo referenced by the npm
-    package is no longer public.
+  note: The organization exists and is Qantas Airways (website https://www.qantas.com/), but publishes zero public repositories. The runway repo
+    referenced by the npm package is no longer public.
 - org: hooroo
   url: https://github.com/hooroo
   name: Qantas Hotels
   created: '2011-05-13'
   public_repos: 9
   status: dormant
-  note: Nine repositories, mostly Ruby forks and infrastructure utilities; most
-    recent push 2019. No API client libraries.
+  note: Nine repositories, mostly Ruby forks and infrastructure utilities; most recent push 2019. No API client libraries.
 - org: qantas
   status: does-not-exist
-  note: api.github.com/orgs/qantas returns 404; github.com/Qantas is an unrelated
-    individual user account.
+  note: api.github.com/orgs/qantas returns 404; github.com/Qantas is an unrelated individual user account.
 packages:
 - language: javascript
   registry: npm
@@ -52,23 +54,33 @@ packages:
   last_published: '2022-04-06'
   repository: https://github.com/qantasairways/runway
   status: unmaintained
-  description: Qantas Style Guide — the Qantas Airways design system. Not an API
-    client.
+  description: Qantas Style Guide — the Qantas Airways design system. Not an API client.
+  version: 0.54.0
+  published: '2020-02-04'
+  version_source: https://registry.npmjs.org/@qantasairways%2Frunway (dist-tags.latest and time[latest], read 2026-10-20)
+  ownership_audit: metadata names qantas.com
 - language: javascript
   registry: npm
   name: roo-ui
   url: https://www.npmjs.com/package/roo-ui
   install: npm install roo-ui
-  official: true
+  official: false
   kind: ui-components
   api_client: false
   last_published: '2023-07-06'
   repository: https://github.com/hooroo/roo-ui
   status: unmaintained
-  description: Qantas Hotels' library of accessible React components and assets.
-    Not an API client.
-third_party_note: |
-  Third-party packages matching "qantas" on npm (qf-parser, wx-api-loyalty-partner-qff*,
+  description: Qantas Hotels' library of accessible React components and assets. Not an API client.
+  version: 5.15.0
+  published: '2023-07-06'
+  version_source: https://registry.npmjs.org/roo-ui (dist-tags.latest and time[latest], read 2026-10-20)
+  ownership_audit: 'registry metadata names neither the provider''s domain nor its GitHub org: official downgraded (harvest-packages.py --audit)'
+third_party_note: 'Third-party packages matching "qantas" on npm (qf-parser, wx-api-loyalty-partner-qff*,
+
   @qantas-assure/logger) are published by unrelated individuals or partner engineering
+
   teams and are not Qantas-published client libraries; they are not listed as
+
   packages here.
+
+  '
