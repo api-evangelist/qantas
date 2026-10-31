@@ -1,4 +1,4 @@
-# Qantas (qantas)
+# Qantas
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,94 +64,107 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Qantas Airways Limited is Australia's flag carrier and, with its low-cost subsidiary Jetstar, one half of a domestic duopoly alongside Virgin Australia. In the distribution chain Qantas is the supplier of its own inventory — it sits upstream of the GDSs (Amadeus, Sabre, Travelport), the aggregators (Duffel, Travelfusion, Mystifly, Verteil, AirGateway, TPConnects, TravelSky) and the large Australian agency groups (Flight Centre, Corporate Travel Management, Webjet). Its API posture is distribution-only and fully gated. Qantas publishes no developer portal, no OpenAPI or Swagger definition, and no public consumer API; `developer.`, `developers.`, `docs.` and `api.qantas.com.au` do not resolve, and `api.qantas.com` returns 404 on every path probed. The one real API is the Qantas Distribution Platform (QDP) NDC XML API, built with Farelogix (now Accelya) and certified by IATA to NDC@Scale. It is documented in prose on Qantas Agency Connect but no endpoint, schema or specification is published; a technology partner must sign a Qantas Distribution Platform Access Agreement, subject to Qantas technical and commercial approval, before it is granted test-environment access, and an agency must hold IATA, ARC, TIDS or VTC accreditation. Public docs on how to get in, no public contract and no exit path.
+Qantas Airways Limited is Australia's flag carrier and, with its low-cost subsidiary Jetstar, one half of a domestic duopoly alongside Virgin Australia. In the distribution chain Qantas is the supplier of its own inventory — it sits upstream of the GDSs (Amadeus, Sabre, Travelport), the aggregators (Duffel, Travelfusion, Mystifly, Verteil, AirGateway, TPConnects, TravelSky) and the large Australian agency groups (Flight Centre, Corporate Travel Management, Webjet). Its API posture is distribution-only and fully gated. Qantas publishes no developer portal, no OpenAPI or Swagger definition, and no public consumer API; developer., developers., docs. and api.qantas.com.au do not resolve, and api.qantas.com returns 404 on every path probed. The one real API is the Qantas Distribution Platform (QDP) NDC XML API, built with Farelogix (now Accelya) and certified by IATA to NDC@Scale. It is documented in prose on Qantas Agency Connect but no endpoint, schema or specification is published; a technology partner must sign a Qantas Distribution Platform Access Agreement, subject to Qantas technical and commercial approval, before it is granted test-environment access, and an agency must hold IATA, ARC, TIDS or VTC accreditation. Public docs on how to get in, no public contract and no exit path.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/qantas/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/qantas/refs/heads/main/apis.yml)
+**Areas:** Travel · Australia · Aviation · Airlines · Distribution · NDC · Booking · Corporate Travel · Loyalty
 
-## Tags
+## Qantas on APIs.io
 
-- Travel
-- Australia
-- Aviation
-- Airline
-- Distribution
-- NDC
-- Booking
-- Corporate Travel
-- Loyalty
+Everything profiled for Qantas is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/qantas/](https://apis.io/providers/qantas/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (1)
 
-- **Created:** 2026-07-28
-- **Modified:** 2026-07-28
+- [Qantas Distribution Platform NDC XML API](https://apis.io/apis/qantas/qantas-distribution-platform-ndc-xml-api/) — The Qantas Distribution Platform (QDP) is Qantas' NDC XML API for airline retailing — shopping, offer and order creation, ticketing, ancillaries and…
 
-## APIs
+### Published properties
 
-### Qantas Distribution Platform NDC XML API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Qantas Distribution Platform (QDP) is Qantas' NDC XML API for airline retailing — shopping, offer and order creation, ticketing, ancillaries and post-booking servicing of Qantas (QF) content for travel agencies, GDSs and aggregators. Built in partnership with Farelogix Inc. (now Accelya) on IATA's New Distribution Capability standard, and certified by IATA to NDC@Scale. Qantas states the platform "does not have a customer-facing user interface" and is "designed to allow Technology Partners to develop a connection to our NDC XML API". No endpoint host, no NDC schema version and no machine-readable specification are published; access requires a signed Qantas Distribution Platform Access Agreement, and agencies must hold IATA, ARC, TIDS or VTC accreditation. Agencies that cannot connect through a Certified Technology Partner may instead use the QDP portal, a web UI powered by Accelya NDC SPRK.
+#### Security (3)
 
-- **Human URL:** [https://agencyconnect.qantas.com/en-au/ndc](https://agencyconnect.qantas.com/en-au/ndc)
-- **Base URL:** not published
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags
+- [Qantas Authentication](https://apis.io/security/qantas/qantas-authentication/)
+- [Qantas Domain Security](https://apis.io/security/qantas/qantas-domain-security/)
+- [Qantas Vulnerability Disclosure](https://apis.io/security/qantas/qantas-vulnerability-disclosure/)
 
-- NDC
-- Airline Distribution
-- XML
-- Offers and Orders
-- Ticketing
-- Ancillaries
-- Servicing
+#### Plans and pricing (1)
 
-#### Properties
+Published plans, tiers and prices.
 
-- [Documentation](https://agencyconnect.qantas.com/en-au/ndc/what-is-ndc)
-- [Documentation](https://agencyconnect.qantas.com/en-au/ndc/benefits)
-- [Partners](https://agencyconnect.qantas.com/en-au/ndc/approved-technology-partners)
-- [Support](https://agencyconnect.qantas.com/en-au/ndc/help-support)
-- [Glossary](https://agencyconnect.qantas.com/en-au/ndc/help-support/glossary)
-- [RateLimits](https://agencyconnect.qantas.com/en-au/policies/agent-information/ndc-shopping-policy)
-- [TermsOfService](https://agencyconnect.qantas.com/en-au/standard-agency-terms-conditions)
-- [Portal](https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal)
-- [Signup](https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/register)
-- [TermsOfService](https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/terms-conditions)
-- [Pricing](https://agencyconnect.qantas.com/en-au/ndc/premium)
+- [Qantas Plans](https://apis.io/plans/qantas/qantas-plans/)
 
----
+#### Rate limits (1)
 
-## Common Properties
+Published request limits.
+
+- [Qantas Rate Limits](https://apis.io/rate-limits/qantas/qantas-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.qantas.com/)
-- [Portal](https://agencyconnect.qantas.com/en-au)
 - [Documentation](https://agencyconnect.qantas.com/en-au/ndc)
-- [TermsOfService](https://agencyconnect.qantas.com/en-au/standard-agency-terms-conditions)
-- [VulnerabilityDisclosure](https://www.qantas.com/.well-known/security.txt)
-- [LinkedIn](https://www.linkedin.com/company/qantas)
+- [Getting started](https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/knowledge-centre)
+- [Pricing](https://agencyconnect.qantas.com/en-au/policies/fares-and-ticketing/distribution-surcharge-policy)
+- [Sign up](https://agencyconnect.qantas.com/en-au/ndc/distribution-platform-portal/register)
+- [Support](https://help.qantas.com/agencyconnect/s/topic/0TOMo000000MuMvOAK/qantas-ndc)
+- [Blog](https://agencyconnect.qantas.com/en-au/news)
+- [Security](https://www.qantas.com/.well-known/security.txt)
+- [Terms of service](https://agencyconnect.qantas.com/en-au/standard-agency-terms-conditions)
+- [Privacy policy](https://www.qantas.com/en-au/help/policies/privacy-and-security)
+- [GitHub](https://github.com/qantasairways)
 
-## Switching Cost
+## API Evangelist rating
 
-Recorded in full in [`review.yml`](review.yml) under `switchingCost`. Summary:
+**Kin Score 34.0** — thin · rubric 0.24.0 · scored 2026-10-20
 
-| Dimension | Finding |
-| --- | --- |
-| Interface shape | `standard-plus-proprietary` — IATA NDC XML, certified NDC@Scale, extended with Qantas-only content tiering, qualifiers and commercial entitlements |
-| Second source | `no-alternative` — the channel is competitive, the content is monopoly; only Qantas sells Qantas seats |
-| Exit path | `no-export-published` — no export, dump, bulk or data-portability operation documented |
-| Identifier portability | Shared industry keys (QF, PNR, EMD, IATA/ARC/TIDS/VTC, PCC) plus platform-bound NDC Order ID, QFF number and ABN/QBR corporate codes |
-| Contractual lock-in | Qantas Distribution Platform Access Agreement; Standard Agency Terms cl. 1.3 (30 days' notice), 2.1 (accreditation), 2.5 (Ticketing Authority revocable at sole discretion); portal terms forbid hyperlinking to or exposing the portal |
-| Distribution model | `ndc-direct` — Qantas runs its own NDC platform and surcharges every other channel |
-| Access gate | `commercial-agreement` — plus IATA/ARC/TIDS/VTC accreditation, plus invitation for the surcharge-free Premium tier |
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 52.6 |
+| Developer ergonomics | 40.5 |
+| Access clarity | 53.9 |
 
-Channel pricing published by Qantas, effective 1 July 2025:
+**Agent readiness 5.6** — agent-aware
 
-| Channel | Qantas surcharge |
-| --- | --- |
-| Traditional EDIFACT via GDS | A$11.50 per segment (AU POS); up to US$13 per segment other POS |
-| Standard NDC via Amadeus / Sabre / Travelport | A$4.50 or US$3.00 per segment |
-| Certified Technology Partner, or the QDP portal | none |
-| Premium NDC (invitation / EOI only) | none, and the widest content range |
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-## No Specifications Harvested
+**Regulatory alignment 17.6** — Horizontal (data, software, accessibility, platform)
 
-No `openapi/` directory exists. Qantas publishes no OpenAPI, Swagger, AsyncAPI or Postman artifact. Every spec path probed on `qantas.com`, `api.qantas.com` and `agencyconnect.qantas.com` returned HTTP 404; no developer subdomain resolves; there is no Qantas GitHub organization; and Qantas is not listed on the IATA Developer Portal. The NDC XML API contract is disclosed only after a Qantas Distribution Platform Access Agreement is signed. Every URL probed and its HTTP status is recorded in [`review.yml`](review.yml) under `probes`.
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/qantas/](https://apis.io/providers/qantas/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Qantas: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/qantas/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
